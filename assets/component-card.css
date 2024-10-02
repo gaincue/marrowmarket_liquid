@@ -51,7 +51,7 @@
 
 .card--card:after,
 .card--standard .card__inner:after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
   width: calc(var(--border-width) * 2 + 100%);
@@ -360,7 +360,7 @@
 
 .card__heading a::after {
   bottom: 0;
-  content: '';
+  content: "";
   left: 0;
   position: absolute;
   right: 0;

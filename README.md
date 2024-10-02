@@ -27,7 +27,7 @@ The starter theme includes an integration of:
 1. Fork this repository & enable actions in the repo's Actions tab.
 
 | :bangbang: | When forking this repo, make sure to change the settings in the forked repo under Settings > Actions > General > Workflow permissions to be `Read and write permissions` and check `Allow GitHub Actions to create and approve pull requests` for the Theme Check & Lighthouse actions to run |
-|:----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :--------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 2. Clone the forked repo, navigate to the directory in your terminal, & run `npm install`.
 
@@ -38,7 +38,7 @@ The starter theme includes an integration of:
 4. In your terminal, navigate to the cloned repo directory, and use the Shopify CLI to launch the development server to your store with `shopify theme dev --store=mystore.myshopify.com` and upload the theme with `shopify theme share`.
 
 | :bangbang: | If you are working on a development store and are signed in via your partner dashboard, you must add a separate user in that Shopify store with admin rights and sign in with this new user when logging in using the Shopify CLI |
-|:----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :--------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 You can add users in the store Settings:
 
@@ -47,7 +47,7 @@ You can add users in the store Settings:
 ## Add GitHub secrets for Lighthouse CI Performance Evaluation Actions
 
 | :bangbang: | This repo does not have the following secrets configured, which is why the Lighthouse action is failing. |
-|:----------:|:---------------------------------------------------------------------------------------------------------|
+| :--------: | :------------------------------------------------------------------------------------------------------- |
 
 First, make sure your `Workflow permissions` are set like below in order for the actions to run:
 
@@ -105,13 +105,13 @@ These secret values are used in the `ci.yml` GitHub workflow:
 
 - Run this command in a separate terminal, so it will continue to run while you are developing.
 - Note that using a Tailwind CSS class without a space afterward when followed by a liquid tag causes compiling issues:
-`lg:!twcss-px-[32px]{% endif %}'>`
-But this does work:
-`lg:!twcss-px-[32px] {% endif %}'>`
+  `lg:!twcss-px-[32px]{% endif %}'>`
+  But this does work:
+  `lg:!twcss-px-[32px] {% endif %}'>`
 
 5. Launch the local development server:
    `shopify theme dev`
-   
+
 ---
 
 # Other Versions of the Starter Theme
@@ -160,7 +160,7 @@ important: true,
 ...
 ```
 
-If this theme is handed over to a development team who will be editing the code directly, the safelist array will need to be removed (ideal to also remove the `important` key, but that would require adjusting any conflicting Dawn styles) from the config file and the following added to the content array to have Tailwind recognize the classes added through the admin fields: 
+If this theme is handed over to a development team who will be editing the code directly, the safelist array will need to be removed (ideal to also remove the `important` key, but that would require adjusting any conflicting Dawn styles) from the config file and the following added to the content array to have Tailwind recognize the classes added through the admin fields:
 
 ```
 content: [
@@ -178,7 +178,7 @@ To lock down the Tailwind CSS admin fields from being editied through the admin,
 _Tailwind fields are not editable through the admin at this stage. Please contact a Trellis engineer if changes are needed._
 
 | :bangbang: | Note that toggling one of the checkboxes after running `gulp` will remove the contents of the tailwind admin fields. Since removing the fields also removes the entered values, swapping to a different field type preserves the values and does not allow for editing the values. |
-|:----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :--------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 #### Code Review of Classes Inserted Through the Admin
 

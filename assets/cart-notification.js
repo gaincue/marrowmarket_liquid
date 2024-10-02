@@ -2,37 +2,37 @@ class CartNotification extends HTMLElement {
   constructor() {
     super();
 
-    this.notification = document.getElementById('cart-notification');
-    this.header = document.querySelector('sticky-header');
+    this.notification = document.getElementById("cart-notification");
+    this.header = document.querySelector("sticky-header");
     this.onBodyClick = this.handleBodyClick.bind(this);
 
     this.notification.addEventListener(
-      'keyup',
-      (evt) => evt.code === 'Escape' && this.close(),
+      "keyup",
+      (evt) => evt.code === "Escape" && this.close()
     );
     this.querySelectorAll('button[type="button"]').forEach((closeButton) =>
-      closeButton.addEventListener('click', this.close.bind(this)),
+      closeButton.addEventListener("click", this.close.bind(this))
     );
   }
 
   open() {
-    this.notification.classList.add('animate', 'active');
+    this.notification.classList.add("animate", "active");
 
     this.notification.addEventListener(
-      'transitionend',
+      "transitionend",
       () => {
         this.notification.focus();
         trapFocus(this.notification);
       },
-      { once: true },
+      { once: true }
     );
 
-    document.body.addEventListener('click', this.onBodyClick);
+    document.body.addEventListener("click", this.onBodyClick);
   }
 
   close() {
-    this.notification.classList.remove('active');
-    document.body.removeEventListener('click', this.onBodyClick);
+    this.notification.classList.remove("active");
+    document.body.removeEventListener("click", this.onBodyClick);
 
     removeTrapFocus(this.activeElement);
   }
@@ -42,7 +42,7 @@ class CartNotification extends HTMLElement {
     this.getSectionsToRender().forEach((section) => {
       document.getElementById(section.id).innerHTML = this.getSectionInnerHTML(
         parsedState.sections[section.id],
-        section.selector,
+        section.selector
       );
     });
 
@@ -53,30 +53,30 @@ class CartNotification extends HTMLElement {
   getSectionsToRender() {
     return [
       {
-        id: 'cart-notification-product',
+        id: "cart-notification-product",
         selector: `[id="cart-notification-product-${this.cartItemKey}"]`,
       },
       {
-        id: 'cart-notification-button',
+        id: "cart-notification-button",
       },
       {
-        id: 'cart-icon-bubble',
+        id: "cart-icon-bubble",
       },
     ];
   }
 
-  getSectionInnerHTML(html, selector = '.shopify-section') {
+  getSectionInnerHTML(html, selector = ".shopify-section") {
     return new DOMParser()
-      .parseFromString(html, 'text/html')
+      .parseFromString(html, "text/html")
       .querySelector(selector).innerHTML;
   }
 
   handleBodyClick(evt) {
     const target = evt.target;
-    if (target !== this.notification && !target.closest('cart-notification')) {
-      const disclosure = target.closest('details-disclosure, header-menu');
+    if (target !== this.notification && !target.closest("cart-notification")) {
+      const disclosure = target.closest("details-disclosure, header-menu");
       this.activeElement = disclosure
-        ? disclosure.querySelector('summary')
+        ? disclosure.querySelector("summary")
         : null;
       this.close();
     }
@@ -87,4 +87,4 @@ class CartNotification extends HTMLElement {
   }
 }
 
-customElements.define('cart-notification', CartNotification);
+customElements.define("cart-notification", CartNotification);

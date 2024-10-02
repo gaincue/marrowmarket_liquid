@@ -1,6 +1,6 @@
-if (!customElements.get('product-info')) {
+if (!customElements.get("product-info")) {
   customElements.define(
-    'product-info',
+    "product-info",
     class ProductInfo extends HTMLElement {
       quantityInput = undefined;
       quantityForm = undefined;
@@ -14,7 +14,7 @@ if (!customElements.get('product-info')) {
       constructor() {
         super();
 
-        this.quantityInput = this.querySelector('.quantity__input');
+        this.quantityInput = this.querySelector(".quantity__input");
       }
 
       connectedCallback() {
@@ -22,12 +22,12 @@ if (!customElements.get('product-info')) {
 
         this.onVariantChangeUnsubscriber = subscribe(
           PUB_SUB_EVENTS.optionValueSelectionChange,
-          this.handleOptionValueChange.bind(this),
+          this.handleOptionValueChange.bind(this)
         );
 
         this.initQuantityHandlers();
         this.dispatchEvent(
-          new CustomEvent('product-info:loaded', { bubbles: true }),
+          new CustomEvent("product-info:loaded", { bubbles: true })
         );
       }
 
@@ -38,14 +38,14 @@ if (!customElements.get('product-info')) {
       initQuantityHandlers() {
         if (!this.quantityInput) return;
 
-        this.quantityForm = this.querySelector('.product-form__quantity');
+        this.quantityForm = this.querySelector(".product-form__quantity");
         if (!this.quantityForm) return;
 
         this.setQuantityBoundries();
         if (!this.dataset.originalSection) {
           this.cartUpdateUnsubscriber = subscribe(
             PUB_SUB_EVENTS.cartUpdate,
-            this.fetchQuantityRules.bind(this),
+            this.fetchQuantityRules.bind(this)
           );
         }
       }
@@ -58,10 +58,10 @@ if (!customElements.get('product-info')) {
       initializeProductSwapUtility() {
         this.preProcessHtmlCallbacks.push((html) =>
           html
-            .querySelectorAll('.scroll-trigger')
+            .querySelectorAll(".scroll-trigger")
             .forEach((element) =>
-              element.classList.add('scroll-trigger--cancel'),
-            ),
+              element.classList.add("scroll-trigger--cancel")
+            )
         );
         this.postProcessHtmlCallbacks.push((newNode) => {
           window?.Shopify?.PaymentButton?.init();
@@ -83,13 +83,13 @@ if (!customElements.get('product-info')) {
         this.pendingRequestUrl = productUrl;
         const shouldSwapProduct = this.dataset.url !== productUrl;
         const shouldFetchFullPage =
-          this.dataset.updateUrl === 'true' && shouldSwapProduct;
+          this.dataset.updateUrl === "true" && shouldSwapProduct;
 
         this.renderProductInfo({
           requestUrl: this.buildRequestUrlWithParams(
             productUrl,
             selectedOptionValues,
-            shouldFetchFullPage,
+            shouldFetchFullPage
           ),
           targetId: target.id,
           callback: shouldSwapProduct
@@ -110,26 +110,26 @@ if (!customElements.get('product-info')) {
 
           const selector = updateFullPage
             ? "product-info[id^='MainProduct']"
-            : 'product-info';
+            : "product-info";
           const variant = this.getSelectedVariant(html.querySelector(selector));
           this.updateURL(productUrl, variant?.id);
 
           if (updateFullPage) {
-            document.querySelector('head title').innerHTML =
-              html.querySelector('head title').innerHTML;
+            document.querySelector("head title").innerHTML =
+              html.querySelector("head title").innerHTML;
 
             HTMLUpdateUtility.viewTransition(
-              document.querySelector('main'),
-              html.querySelector('main'),
+              document.querySelector("main"),
+              html.querySelector("main"),
               this.preProcessHtmlCallbacks,
-              this.postProcessHtmlCallbacks,
+              this.postProcessHtmlCallbacks
             );
           } else {
             HTMLUpdateUtility.viewTransition(
               this,
-              html.querySelector('product-info'),
+              html.querySelector("product-info"),
               this.preProcessHtmlCallbacks,
-              this.postProcessHtmlCallbacks,
+              this.postProcessHtmlCallbacks
             );
           }
         };
@@ -145,7 +145,7 @@ if (!customElements.get('product-info')) {
             this.pendingRequestUrl = null;
             const html = new DOMParser().parseFromString(
               responseText,
-              'text/html',
+              "text/html"
             );
             callback(html);
           })
@@ -154,8 +154,8 @@ if (!customElements.get('product-info')) {
             document.querySelector(`#${targetId}`)?.focus();
           })
           .catch((error) => {
-            if (error.name === 'AbortError') {
-              console.log('Fetch aborted by user');
+            if (error.name === "AbortError") {
+              console.log("Fetch aborted by user");
             } else {
               console.error(error);
             }
@@ -164,7 +164,7 @@ if (!customElements.get('product-info')) {
 
       getSelectedVariant(productInfoNode) {
         const selectedVariant = productInfoNode.querySelector(
-          'variant-selects [data-selected-variant]',
+          "variant-selects [data-selected-variant]"
         )?.innerHTML;
         return !!selectedVariant ? JSON.parse(selectedVariant) : null;
       }
@@ -172,26 +172,26 @@ if (!customElements.get('product-info')) {
       buildRequestUrlWithParams(
         url,
         optionValues,
-        shouldFetchFullPage = false,
+        shouldFetchFullPage = false
       ) {
         const params = [];
 
         !shouldFetchFullPage && params.push(`section_id=${this.sectionId}`);
 
         if (optionValues.length) {
-          params.push(`option_values=${optionValues.join(',')}`);
+          params.push(`option_values=${optionValues.join(",")}`);
         }
 
-        return `${url}?${params.join('&')}`;
+        return `${url}?${params.join("&")}`;
       }
 
       updateOptionValues(html) {
-        const variantSelects = html.querySelector('variant-selects');
+        const variantSelects = html.querySelector("variant-selects");
         if (variantSelects) {
           HTMLUpdateUtility.viewTransition(
             this.variantSelectors,
             variantSelects,
-            this.preProcessHtmlCallbacks,
+            this.preProcessHtmlCallbacks
           );
         }
       }
@@ -214,44 +214,44 @@ if (!customElements.get('product-info')) {
 
           const updateSourceFromDestination = (
             id,
-            shouldHide = (source) => false,
+            shouldHide = (source) => false
           ) => {
             const source = html.getElementById(`${id}-${this.sectionId}`);
             const destination = this.querySelector(
-              `#${id}-${this.dataset.section}`,
+              `#${id}-${this.dataset.section}`
             );
             if (source && destination) {
               destination.innerHTML = source.innerHTML;
-              destination.classList.toggle('hidden', shouldHide(source));
+              destination.classList.toggle("hidden", shouldHide(source));
             }
           };
 
-          updateSourceFromDestination('price');
-          updateSourceFromDestination('Sku', ({ classList }) =>
-            classList.contains('hidden'),
+          updateSourceFromDestination("price");
+          updateSourceFromDestination("Sku", ({ classList }) =>
+            classList.contains("hidden")
           );
           updateSourceFromDestination(
-            'Inventory',
-            ({ innerText }) => innerText === '',
+            "Inventory",
+            ({ innerText }) => innerText === ""
           );
-          updateSourceFromDestination('Volume');
-          updateSourceFromDestination('Price-Per-Item', ({ classList }) =>
-            classList.contains('hidden'),
+          updateSourceFromDestination("Volume");
+          updateSourceFromDestination("Price-Per-Item", ({ classList }) =>
+            classList.contains("hidden")
           );
 
           this.updateQuantityRules(this.sectionId, html);
           this.querySelector(
-            `#Quantity-Rules-${this.dataset.section}`,
-          )?.classList.remove('hidden');
+            `#Quantity-Rules-${this.dataset.section}`
+          )?.classList.remove("hidden");
           this.querySelector(
-            `#Volume-Note-${this.dataset.section}`,
-          )?.classList.remove('hidden');
+            `#Volume-Note-${this.dataset.section}`
+          )?.classList.remove("hidden");
 
           this.productForm?.toggleSubmitButton(
             html
               .getElementById(`ProductSubmitButton-${this.sectionId}`)
-              ?.hasAttribute('disabled') ?? true,
-            window.variantStrings.soldOut,
+              ?.hasAttribute("disabled") ?? true,
+            window.variantStrings.soldOut
           );
 
           publish(PUB_SUB_EVENTS.variantChange, {
@@ -266,68 +266,68 @@ if (!customElements.get('product-info')) {
 
       updateVariantInputs(variantId) {
         this.querySelectorAll(
-          `#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}`,
+          `#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}`
         ).forEach((productForm) => {
           const input = productForm.querySelector('input[name="id"]');
-          input.value = variantId ?? '';
-          input.dispatchEvent(new Event('change', { bubbles: true }));
+          input.value = variantId ?? "";
+          input.dispatchEvent(new Event("change", { bubbles: true }));
         });
       }
 
       updateURL(url, variantId) {
-        this.querySelector('share-button')?.updateUrl(
-          `${window.shopUrl}${url}${variantId ? `?variant=${variantId}` : ''}`,
+        this.querySelector("share-button")?.updateUrl(
+          `${window.shopUrl}${url}${variantId ? `?variant=${variantId}` : ""}`
         );
 
-        if (this.dataset.updateUrl === 'false') return;
+        if (this.dataset.updateUrl === "false") return;
         window.history.replaceState(
           {},
-          '',
-          `${url}${variantId ? `?variant=${variantId}` : ''}`,
+          "",
+          `${url}${variantId ? `?variant=${variantId}` : ""}`
         );
       }
 
       setUnavailable() {
         this.productForm?.toggleSubmitButton(
           true,
-          window.variantStrings.unavailable,
+          window.variantStrings.unavailable
         );
 
         const selectors = [
-          'price',
-          'Inventory',
-          'Sku',
-          'Price-Per-Item',
-          'Volume-Note',
-          'Volume',
-          'Quantity-Rules',
+          "price",
+          "Inventory",
+          "Sku",
+          "Price-Per-Item",
+          "Volume-Note",
+          "Volume",
+          "Quantity-Rules",
         ]
           .map((id) => `#${id}-${this.dataset.section}`)
-          .join(', ');
+          .join(", ");
         document
           .querySelectorAll(selectors)
-          .forEach(({ classList }) => classList.add('hidden'));
+          .forEach(({ classList }) => classList.add("hidden"));
       }
 
       updateMedia(html, variantFeaturedMediaId) {
         if (!variantFeaturedMediaId) return;
 
-        const mediaGallerySource = this.querySelector('media-gallery ul');
+        const mediaGallerySource = this.querySelector("media-gallery ul");
         const mediaGalleryDestination = html.querySelector(`media-gallery ul`);
 
         const refreshSourceData = () => {
-          if (this.hasAttribute('data-zoom-on-hover')) enableZoomOnHover(2);
+          if (this.hasAttribute("data-zoom-on-hover")) enableZoomOnHover(2);
           const mediaGallerySourceItems = Array.from(
-            mediaGallerySource.querySelectorAll('li[data-media-id]'),
+            mediaGallerySource.querySelectorAll("li[data-media-id]")
           );
           const sourceSet = new Set(
-            mediaGallerySourceItems.map((item) => item.dataset.mediaId),
+            mediaGallerySourceItems.map((item) => item.dataset.mediaId)
           );
           const sourceMap = new Map(
             mediaGallerySourceItems.map((item, index) => [
               item.dataset.mediaId,
               { item, index },
-            ]),
+            ])
           );
           return [mediaGallerySourceItems, sourceSet, sourceMap];
         };
@@ -336,10 +336,10 @@ if (!customElements.get('product-info')) {
           let [mediaGallerySourceItems, sourceSet, sourceMap] =
             refreshSourceData();
           const mediaGalleryDestinationItems = Array.from(
-            mediaGalleryDestination.querySelectorAll('li[data-media-id]'),
+            mediaGalleryDestination.querySelectorAll("li[data-media-id]")
           );
           const destinationSet = new Set(
-            mediaGalleryDestinationItems.map(({ dataset }) => dataset.mediaId),
+            mediaGalleryDestinationItems.map(({ dataset }) => dataset.mediaId)
           );
           let shouldRefresh = false;
 
@@ -377,30 +377,30 @@ if (!customElements.get('product-info')) {
                 mediaGallerySource.insertBefore(
                   sourceData.item,
                   mediaGallerySource.querySelector(
-                    `li:nth-of-type(${destinationIndex + 1})`,
-                  ),
+                    `li:nth-of-type(${destinationIndex + 1})`
+                  )
                 );
 
                 // refresh source now that it has been modified
                 [mediaGallerySourceItems, sourceSet, sourceMap] =
                   refreshSourceData();
               }
-            },
+            }
           );
         }
 
         // set featured media as active in the media gallery
         this.querySelector(`media-gallery`)?.setActiveMedia?.(
           `${this.dataset.section}-${variantFeaturedMediaId}`,
-          true,
+          true
         );
 
         // update media modal
         const modalContent = this.productModal?.querySelector(
-          `.product-media-modal__content`,
+          `.product-media-modal__content`
         );
         const newModalContent = html.querySelector(
-          `product-modal .product-media-modal__content`,
+          `product-modal .product-media-modal__content`
         );
         if (modalContent && newModalContent)
           modalContent.innerHTML = newModalContent.innerHTML;
@@ -430,7 +430,7 @@ if (!customElements.get('product-info')) {
         if (max) {
           this.quantityInput.max = max;
         } else {
-          this.quantityInput.removeAttribute('max');
+          this.quantityInput.removeAttribute("max");
         }
         this.quantityInput.value = min;
 
@@ -442,24 +442,24 @@ if (!customElements.get('product-info')) {
         if (!currentVariantId) return;
 
         this.querySelector(
-          '.quantity__rules-cart .loading__spinner',
-        ).classList.remove('hidden');
+          ".quantity__rules-cart .loading__spinner"
+        ).classList.remove("hidden");
         fetch(
-          `${this.dataset.url}?variant=${currentVariantId}&section_id=${this.dataset.section}`,
+          `${this.dataset.url}?variant=${currentVariantId}&section_id=${this.dataset.section}`
         )
           .then((response) => response.text())
           .then((responseText) => {
             const html = new DOMParser().parseFromString(
               responseText,
-              'text/html',
+              "text/html"
             );
             this.updateQuantityRules(this.dataset.section, html);
           })
           .catch((e) => console.error(e))
           .finally(() =>
             this.querySelector(
-              '.quantity__rules-cart .loading__spinner',
-            ).classList.add('hidden'),
+              ".quantity__rules-cart .loading__spinner"
+            ).classList.add("hidden")
           );
       }
 
@@ -468,23 +468,23 @@ if (!customElements.get('product-info')) {
         this.setQuantityBoundries();
 
         const quantityFormUpdated = html.getElementById(
-          `Quantity-Form-${sectionId}`,
+          `Quantity-Form-${sectionId}`
         );
         const selectors = [
-          '.quantity__input',
-          '.quantity__rules',
-          '.quantity__label',
+          ".quantity__input",
+          ".quantity__rules",
+          ".quantity__label",
         ];
         for (let selector of selectors) {
           const current = this.quantityForm.querySelector(selector);
           const updated = quantityFormUpdated.querySelector(selector);
           if (!current || !updated) continue;
-          if (selector === '.quantity__input') {
+          if (selector === ".quantity__input") {
             const attributes = [
-              'data-cart-quantity',
-              'data-min',
-              'data-max',
-              'step',
+              "data-cart-quantity",
+              "data-min",
+              "data-max",
+              "step",
             ];
             for (let attribute of attributes) {
               const valueUpdated = updated.getAttribute(attribute);
@@ -513,32 +513,32 @@ if (!customElements.get('product-info')) {
       }
 
       get variantSelectors() {
-        return this.querySelector('variant-selects');
+        return this.querySelector("variant-selects");
       }
 
       get relatedProducts() {
         const relatedProductsSectionId = SectionId.getIdForSection(
           SectionId.parseId(this.sectionId),
-          'related-products',
+          "related-products"
         );
         return document.querySelector(
-          `product-recommendations[data-section-id^="${relatedProductsSectionId}"]`,
+          `product-recommendations[data-section-id^="${relatedProductsSectionId}"]`
         );
       }
 
       get quickOrderList() {
         const quickOrderListSectionId = SectionId.getIdForSection(
           SectionId.parseId(this.sectionId),
-          'quick_order_list',
+          "quick_order_list"
         );
         return document.querySelector(
-          `quick-order-list[data-id^="${quickOrderListSectionId}"]`,
+          `quick-order-list[data-id^="${quickOrderListSectionId}"]`
         );
       }
 
       get sectionId() {
         return this.dataset.originalSection || this.dataset.section;
       }
-    },
+    }
   );
 }

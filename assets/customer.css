@@ -210,7 +210,7 @@
 /* works around colspan phantom border issues */
 .customer thead::after,
 .customer tfoot::before {
-  content: ' ';
+  content: " ";
   height: 0.1rem;
   width: 100%;
   display: block;
@@ -317,7 +317,7 @@
 }
 
 .customer .pagination li [aria-current]::after {
-  content: '';
+  content: "";
   display: block;
   width: 2rem;
   height: 0.01rem;
@@ -335,7 +335,7 @@
   width: fit-content;
 }
 
-.login a[href='#recover'] {
+.login a[href="#recover"] {
   margin-left: 0;
   margin-right: 0;
 }
@@ -385,7 +385,7 @@
   margin-bottom: 0;
 }
 
-.activate button[name='decline'],
+.activate button[name="decline"],
 .addresses li > button,
 .addresses form button[type] {
   background-color: rgba(
@@ -396,7 +396,7 @@
 }
 
 @media only screen and (min-width: 750px) {
-  .activate button[name='decline'] {
+  .activate button[name="decline"] {
     margin-top: inherit;
     margin-left: 1rem;
   }
@@ -676,8 +676,8 @@
   margin-right: 1rem;
 }
 
-label[for='AddressCountryNew'],
-label[for='AddressProvinceNew'] {
+label[for="AddressCountryNew"],
+label[for="AddressProvinceNew"] {
   display: block;
   font-size: 1.4rem;
   margin-bottom: 0.6rem;
@@ -703,11 +703,11 @@ li[data-address] {
   margin-top: 5rem;
 }
 
-.addresses [aria-expanded='false'] ~ div[id] {
+.addresses [aria-expanded="false"] ~ div[id] {
   display: none;
 }
 
-.addresses [aria-expanded='true'] ~ div[id] {
+.addresses [aria-expanded="true"] ~ div[id] {
   display: block;
 }
 
@@ -731,7 +731,7 @@ li[data-address] > h2 {
   margin-bottom: 0;
 }
 
-.addresses input[type='checkbox'] {
+.addresses input[type="checkbox"] {
   margin-top: 2rem;
   margin-left: 0;
 }

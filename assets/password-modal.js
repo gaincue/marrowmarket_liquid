@@ -3,8 +3,8 @@ class PasswordModal extends DetailsModal {
     super();
 
     if (this.querySelector('input[aria-invalid="true"]'))
-      this.open({ target: this.querySelector('details') });
+      this.open({ target: this.querySelector("details") });
   }
 }
 
-customElements.define('password-modal', PasswordModal);
+customElements.define("password-modal", PasswordModal);

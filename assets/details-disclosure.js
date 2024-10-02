@@ -1,15 +1,15 @@
 class DetailsDisclosure extends HTMLElement {
   constructor() {
     super();
-    this.mainDetailsToggle = this.querySelector('details');
+    this.mainDetailsToggle = this.querySelector("details");
     this.content =
-      this.mainDetailsToggle.querySelector('summary').nextElementSibling;
+      this.mainDetailsToggle.querySelector("summary").nextElementSibling;
 
     this.mainDetailsToggle.addEventListener(
-      'focusout',
-      this.onFocusOut.bind(this),
+      "focusout",
+      this.onFocusOut.bind(this)
     );
-    this.mainDetailsToggle.addEventListener('toggle', this.onToggle.bind(this));
+    this.mainDetailsToggle.addEventListener("toggle", this.onToggle.bind(this));
   }
 
   onFocusOut() {
@@ -21,7 +21,7 @@ class DetailsDisclosure extends HTMLElement {
   onToggle() {
     if (!this.animations) this.animations = this.content.getAnimations();
 
-    if (this.mainDetailsToggle.hasAttribute('open')) {
+    if (this.mainDetailsToggle.hasAttribute("open")) {
       this.animations.forEach((animation) => animation.play());
     } else {
       this.animations.forEach((animation) => animation.cancel());
@@ -29,19 +29,19 @@ class DetailsDisclosure extends HTMLElement {
   }
 
   close() {
-    this.mainDetailsToggle.removeAttribute('open');
+    this.mainDetailsToggle.removeAttribute("open");
     this.mainDetailsToggle
-      .querySelector('summary')
-      .setAttribute('aria-expanded', false);
+      .querySelector("summary")
+      .setAttribute("aria-expanded", false);
   }
 }
 
-customElements.define('details-disclosure', DetailsDisclosure);
+customElements.define("details-disclosure", DetailsDisclosure);
 
 class HeaderMenu extends DetailsDisclosure {
   constructor() {
     super();
-    this.header = document.querySelector('.header-wrapper');
+    this.header = document.querySelector(".header-wrapper");
   }
 
   onToggle() {
@@ -50,15 +50,15 @@ class HeaderMenu extends DetailsDisclosure {
 
     if (
       document.documentElement.style.getPropertyValue(
-        '--header-bottom-position-desktop',
-      ) !== ''
+        "--header-bottom-position-desktop"
+      ) !== ""
     )
       return;
     document.documentElement.style.setProperty(
-      '--header-bottom-position-desktop',
-      `${Math.floor(this.header.getBoundingClientRect().bottom)}px`,
+      "--header-bottom-position-desktop",
+      `${Math.floor(this.header.getBoundingClientRect().bottom)}px`
     );
   }
 }
 
-customElements.define('header-menu', HeaderMenu);
+customElements.define("header-menu", HeaderMenu);

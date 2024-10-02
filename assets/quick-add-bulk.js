@@ -1,28 +1,28 @@
-if (!customElements.get('quick-add-bulk')) {
+if (!customElements.get("quick-add-bulk")) {
   customElements.define(
-    'quick-add-bulk',
+    "quick-add-bulk",
     class QuickAddBulk extends BulkAdd {
       constructor() {
         super();
-        this.quantity = this.querySelector('quantity-input');
+        this.quantity = this.querySelector("quantity-input");
 
         const debouncedOnChange = debounce((event) => {
           if (parseInt(event.target.value) === 0) {
             this.startQueue(
               event.target.dataset.index,
-              parseInt(event.target.value),
+              parseInt(event.target.value)
             );
           } else {
             this.validateQuantity(event);
           }
         }, ON_CHANGE_DEBOUNCE_TIMER);
 
-        this.addEventListener('change', debouncedOnChange.bind(this));
+        this.addEventListener("change", debouncedOnChange.bind(this));
         this.listenForActiveInput();
         this.listenForKeydown();
         this.lastActiveInputId = null;
         const pageParams = new URLSearchParams(window.location.search);
-        window.pageNumber = decodeURIComponent(pageParams.get('page') || '');
+        window.pageNumber = decodeURIComponent(pageParams.get("page") || "");
       }
 
       connectedCallback() {
@@ -30,10 +30,10 @@ if (!customElements.get('quick-add-bulk')) {
           PUB_SUB_EVENTS.cartUpdate,
           (event) => {
             if (
-              event.source === 'quick-add' ||
+              event.source === "quick-add" ||
               (event.cartData.items &&
                 !event.cartData.items.some(
-                  (item) => item.id === parseInt(this.dataset.index),
+                  (item) => item.id === parseInt(this.dataset.index)
                 )) ||
               (event.cartData.variant_id &&
                 !(event.cartData.variant_id === parseInt(this.dataset.index)))
@@ -45,7 +45,7 @@ if (!customElements.get('quick-add-bulk')) {
               this.listenForActiveInput();
               this.listenForKeydown();
             });
-          },
+          }
         );
       }
 
@@ -56,25 +56,25 @@ if (!customElements.get('quick-add-bulk')) {
       }
 
       getInput() {
-        return this.querySelector('quantity-input input');
+        return this.querySelector("quantity-input input");
       }
 
       selectProgressBar() {
-        return this.querySelector('.progress-bar-container');
+        return this.querySelector(".progress-bar-container");
       }
 
       listenForActiveInput() {
-        if (!this.classList.contains('hidden')) {
-          this.getInput().addEventListener('focusin', (event) =>
-            event.target.select(),
+        if (!this.classList.contains("hidden")) {
+          this.getInput().addEventListener("focusin", (event) =>
+            event.target.select()
           );
         }
         this.isEnterPressed = false;
       }
 
       listenForKeydown() {
-        this.getInput().addEventListener('keydown', (event) => {
-          if (event.key === 'Enter') {
+        this.getInput().addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
             this.getInput().blur();
             this.isEnterPressed = true;
           }
@@ -83,11 +83,11 @@ if (!customElements.get('quick-add-bulk')) {
 
       cleanErrorMessageOnType(event) {
         event.target.addEventListener(
-          'keypress',
+          "keypress",
           () => {
-            event.target.setCustomValidity('');
+            event.target.setCustomValidity("");
           },
-          { once: true },
+          { once: true }
         );
       }
 
@@ -95,19 +95,19 @@ if (!customElements.get('quick-add-bulk')) {
         return new Promise((resolve, reject) => {
           fetch(
             `${this.getSectionsUrl()}?section_id=${
-              this.closest('.collection').dataset.id
-            }`,
+              this.closest(".collection").dataset.id
+            }`
           )
             .then((response) => response.text())
             .then((responseText) => {
               const html = new DOMParser().parseFromString(
                 responseText,
-                'text/html',
+                "text/html"
               );
               const sourceQty = html.querySelector(
                 `#quick-add-bulk-${this.dataset.id}-${
-                  this.closest('.collection').dataset.id
-                }`,
+                  this.closest(".collection").dataset.id
+                }`
               );
               if (sourceQty) {
                 this.innerHTML = sourceQty.innerHTML;
@@ -122,13 +122,13 @@ if (!customElements.get('quick-add-bulk')) {
       }
 
       updateMultipleQty(items) {
-        this.selectProgressBar().classList.remove('hidden');
+        this.selectProgressBar().classList.remove("hidden");
 
         const ids = Object.keys(items);
         const body = JSON.stringify({
           updates: items,
           sections: this.getSectionsToRender().map(
-            (section) => section.section,
+            (section) => section.section
           ),
           sections_url: this.getSectionsUrl(),
         });
@@ -141,7 +141,7 @@ if (!customElements.get('quick-add-bulk')) {
             const parsedState = JSON.parse(state);
             this.renderSections(parsedState, ids);
             publish(PUB_SUB_EVENTS.cartUpdate, {
-              source: 'quick-add',
+              source: "quick-add",
               cartData: parsedState,
             });
           })
@@ -155,7 +155,7 @@ if (!customElements.get('quick-add-bulk')) {
             // this.cleanErrorMessageOnType(e);
           })
           .finally(() => {
-            this.selectProgressBar().classList.add('hidden');
+            this.selectProgressBar().classList.add("hidden");
             this.requestStarted = false;
           });
       }
@@ -164,29 +164,29 @@ if (!customElements.get('quick-add-bulk')) {
         return [
           {
             id: `quick-add-bulk-${this.dataset.id}-${
-              this.closest('.collection-quick-add-bulk').dataset.id
+              this.closest(".collection-quick-add-bulk").dataset.id
             }`,
-            section: this.closest('.collection-quick-add-bulk').dataset.id,
+            section: this.closest(".collection-quick-add-bulk").dataset.id,
             selector: `#quick-add-bulk-${this.dataset.id}-${
-              this.closest('.collection-quick-add-bulk').dataset.id
+              this.closest(".collection-quick-add-bulk").dataset.id
             }`,
           },
           {
-            id: 'cart-icon-bubble',
-            section: 'cart-icon-bubble',
-            selector: '.shopify-section',
+            id: "cart-icon-bubble",
+            section: "cart-icon-bubble",
+            selector: ".shopify-section",
           },
           {
-            id: 'CartDrawer',
-            selector: '#CartDrawer',
-            section: 'cart-drawer',
+            id: "CartDrawer",
+            selector: "#CartDrawer",
+            section: "cart-drawer",
           },
         ];
       }
 
       renderSections(parsedState, ids) {
         const intersection = this.queue.filter((element) =>
-          ids.includes(element.id),
+          ids.includes(element.id)
         );
         if (intersection.length !== 0) return;
         this.getSectionsToRender().forEach((section) => {
@@ -194,16 +194,16 @@ if (!customElements.get('quick-add-bulk')) {
           if (
             sectionElement &&
             sectionElement.parentElement &&
-            sectionElement.parentElement.classList.contains('drawer')
+            sectionElement.parentElement.classList.contains("drawer")
           ) {
             parsedState.items.length > 0
-              ? sectionElement.parentElement.classList.remove('is-empty')
-              : sectionElement.parentElement.classList.add('is-empty');
+              ? sectionElement.parentElement.classList.remove("is-empty")
+              : sectionElement.parentElement.classList.add("is-empty");
 
             setTimeout(() => {
               document
-                .querySelector('#CartDrawer-Overlay')
-                .addEventListener('click', this.cart.close.bind(this.cart));
+                .querySelector("#CartDrawer-Overlay")
+                .addEventListener("click", this.cart.close.bind(this.cart));
             });
           }
           const elementToReplace =
@@ -213,7 +213,7 @@ if (!customElements.get('quick-add-bulk')) {
           if (elementToReplace) {
             elementToReplace.innerHTML = this.getSectionInnerHTML(
               parsedState.sections[section.section],
-              section.selector,
+              section.selector
             );
           }
         });
@@ -225,6 +225,6 @@ if (!customElements.get('quick-add-bulk')) {
         this.listenForActiveInput();
         this.listenForKeydown();
       }
-    },
+    }
   );
 }

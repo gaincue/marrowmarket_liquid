@@ -125,7 +125,7 @@
 }
 
 .collage-card:after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
   border-radius: var(--border-radius);
@@ -173,7 +173,7 @@
 }
 
 .collage-card .deferred-media__poster:after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: 1;
   outline-offset: 0.3rem;

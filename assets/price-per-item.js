@@ -1,15 +1,15 @@
-if (!customElements.get('price-per-item')) {
+if (!customElements.get("price-per-item")) {
   customElements.define(
-    'price-per-item',
+    "price-per-item",
     class PricePerItem extends HTMLElement {
       constructor() {
         super();
         this.variantId = this.dataset.variantId;
         this.input = document.getElementById(
-          `Quantity-${this.dataset.sectionId || this.dataset.variantId}`,
+          `Quantity-${this.dataset.sectionId || this.dataset.variantId}`
         );
         if (this.input) {
-          this.input.addEventListener('change', this.onInputChange.bind(this));
+          this.input.addEventListener("change", this.onInputChange.bind(this));
         }
 
         this.getVolumePricingArray();
@@ -25,7 +25,7 @@ if (!customElements.get('price-per-item')) {
           (event) => {
             this.variantId = event.data.variant.id.toString();
             this.getVolumePricingArray();
-          },
+          }
         );
 
         this.updatePricePerItemUnsubscriber = subscribe(
@@ -34,13 +34,13 @@ if (!customElements.get('price-per-item')) {
             if (!response.cartData) return;
 
             // Item was added to cart via product page
-            if (response.cartData['variant_id'] !== undefined) {
+            if (response.cartData["variant_id"] !== undefined) {
               if (response.productVariantId === this.variantId)
                 this.updatePricePerItem(response.cartData.quantity);
               // Qty was updated in cart
             } else if (response.cartData.item_count !== 0) {
               const isVariant = response.cartData.items.find(
-                (item) => item.variant_id.toString() === this.variantId,
+                (item) => item.variant_id.toString() === this.variantId
               );
               if (isVariant && isVariant.id.toString() === this.variantId) {
                 // The variant is still in cart
@@ -53,7 +53,7 @@ if (!customElements.get('price-per-item')) {
             } else {
               this.updatePricePerItem(0);
             }
-          },
+          }
         );
       }
 
@@ -83,7 +83,7 @@ if (!customElements.get('price-per-item')) {
             ? this.getCartQuantity(updatedCartQuantity) + this.enteredQty
             : this.getCartQuantity(updatedCartQuantity) + parseInt(this.step);
 
-        if (this.classList.contains('variant-item__price-per-item')) {
+        if (this.classList.contains("variant-item__price-per-item")) {
           this.currentQtyForVolumePricing =
             this.getCartQuantity(updatedCartQuantity);
         }
@@ -92,11 +92,11 @@ if (!customElements.get('price-per-item')) {
             const pricePerItemCurrent = document.querySelector(
               `price-per-item[id^="Price-Per-Item-${
                 this.dataset.sectionId || this.dataset.variantId
-              }"] .price-per-item span`,
+              }"] .price-per-item span`
             );
-            this.classList.contains('variant-item__price-per-item')
+            this.classList.contains("variant-item__price-per-item")
               ? (pricePerItemCurrent.innerHTML =
-                  window.quickOrderListStrings.each.replace('[money]', pair[1]))
+                  window.quickOrderListStrings.each.replace("[money]", pair[1]))
               : (pricePerItemCurrent.innerHTML = pair[1]);
             break;
           }
@@ -111,22 +111,22 @@ if (!customElements.get('price-per-item')) {
 
       getVolumePricingArray() {
         const volumePricing = document.getElementById(
-          `Volume-${this.dataset.sectionId || this.dataset.variantId}`,
+          `Volume-${this.dataset.sectionId || this.dataset.variantId}`
         );
         this.qtyPricePairs = [];
 
         if (volumePricing) {
-          volumePricing.querySelectorAll('li').forEach((li) => {
+          volumePricing.querySelectorAll("li").forEach((li) => {
             const qty = parseInt(
-              li.querySelector('span:first-child').textContent,
+              li.querySelector("span:first-child").textContent
             );
-            const price = li.querySelector('span:not(:first-child):last-child')
+            const price = li.querySelector("span:not(:first-child):last-child")
               .dataset.text;
             this.qtyPricePairs.push([qty, price]);
           });
         }
         this.qtyPricePairs.reverse();
       }
-    },
+    }
   );
 }

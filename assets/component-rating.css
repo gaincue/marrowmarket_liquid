@@ -35,7 +35,7 @@
 }
 
 .rating-star::before {
-  content: '★★★★★';
+  content: "★★★★★";
   background: linear-gradient(
     90deg,
     var(--color-rating-star) var(--percent),
