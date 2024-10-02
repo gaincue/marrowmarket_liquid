@@ -8,14 +8,23 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "Announcement 1",
+            "text_alignment": "center",
+            "color_scheme": "scheme-1",
+            "link": ""
+          }
+        },
+        "announcement-bar-1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Announcement 2",
             "text_alignment": "center",
             "color_scheme": "scheme-1",
             "link": ""
           }
         }
       },
-      "block_order": ["announcement-bar-0"]
+      "block_order": ["announcement-bar-0", "announcement-bar-1"]
     },
     "header": {
       "type": "header",
@@ -35,5 +44,5 @@
       }
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": ["header", "announcement-bar"]
 }
