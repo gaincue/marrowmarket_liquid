@@ -8,6 +8,13 @@ module.exports = {
     "./snippets/*.liquid",
   ],
   theme: {
+    colors: {
+      flesh: "#ab121c",
+      skin: "#fcfaed",
+      bone: "#ffffff",
+      charcoal: "#242424",
+      mud: "#ac7948",
+    },
     screens: {
       sm: "320px",
       md: "750px",
