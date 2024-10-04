@@ -195,7 +195,6 @@ if (!customElements.get("recipient-form")) {
             if (textField) textField.innerText = "";
           }
         );
-
         [
           this.emailInput,
           this.messageInput,
