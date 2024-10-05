@@ -128,15 +128,6 @@
       <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
-            {%- when 'logo' -%}
-              <img
-                src="{{ block.settings.image | image_url: width: 300 }}"
-                alt="{{ block.settings.image.alt | escape }}"
-                height="{{ block.settings.image.height }}"
-                width="{{ block.settings.image.width }}"
-                loading="lazy"
-                class="motion-reduce"
-              >
             {%- when 'heading' -%}
               <h2
                 class="banner__heading inline-richtext {{ block.settings.heading_size }}"
@@ -181,6 +172,20 @@
           {%- endcase -%}
         {%- endfor -%}
       </div>
+      {% comment %} image banner logo {% endcomment %}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'image' -%}
+            <img
+              src="{{ block.settings.image | image_url: width: 200 }}"
+              alt="{{ block.settings.image.alt | escape }}"
+              height="{{ block.settings.image.height }}"
+              width="200"
+              loading="lazy"
+              class="motion-reduce twcss-absolute twcss-bottom-0 max-md:twcss-hidden"
+            >
+        {%- endcase -%}
+      {%- endfor -%}
     </div>
   </div>
 </a>
