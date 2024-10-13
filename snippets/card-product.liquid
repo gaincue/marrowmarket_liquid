@@ -310,7 +310,7 @@
       {% comment %} on hover shows add to cart {% endcomment %}
       {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
       {% if quick_add == 'standard' %}
-        <div class="quick-add no-js-hidden">
+        <div class="quick-add no-js-hidden twcss-flex twcss-space-x-4">
           {%- liquid
             assign qty_rules = false
             if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
@@ -318,7 +318,7 @@
             endif
           -%}
           {%- if card_product.variants.size > 1 or qty_rules -%}
-            <modal-opener data-modal="#QuickAdd-{{ card_product.id }}">
+            <modal-opener data-modal="#QuickAdd-{{ card_product.id }}" class="twcss-flex-1">
               <button
                 id="{{ product_form_id }}-submit"
                 type="submit"
@@ -335,6 +335,7 @@
                 {%- render 'loading-spinner' -%}
               </button>
             </modal-opener>
+            <button class="st-wishlist-button" data-type="details" data-handle="{{ card_product.handle }}"></button>
             <quick-add-modal id="QuickAdd-{{ card_product.id }}" class="quick-add-modal">
               <div
                 role="dialog"
@@ -355,7 +356,7 @@
               </div>
             </quick-add-modal>
           {%- else -%}
-            <product-form data-section-id="{{ section.id }}">
+            <product-form data-section-id="{{ section.id }}" class="twcss-flex-1">
               {%- form 'product',
                 card_product,
                 id: product_form_id,
@@ -402,6 +403,7 @@
                 </button>
               {%- endform -%}
             </product-form>
+            <button class="st-wishlist-button" data-type="details" data-handle="{{ card_product.handle }}"></button>
           {%- endif -%}
         </div>
       {% elsif quick_add == 'bulk' %}
@@ -409,7 +411,7 @@
           <quick-add-bulk
             data-min="{{ card_product.selected_or_first_available_variant.quantity_rule.min }}"
             id="quick-add-bulk-{{ card_product.selected_or_first_available_variant.id }}-{{ section.id }}"
-            class="quick-add-bulk"
+            class="quick-add-bulk twcss-flex twcss-space-x-4"
             data-index="{{ card_product.selected_or_first_available_variant.id }}"
           >
             {% if card_product.selected_or_first_available_variant.available == false %}
@@ -417,7 +419,7 @@
                 id="{{ product_form_id }}-submit"
                 type="submit"
                 name="add"
-                class="quick-add__submit button button--full-width button--secondary"
+                class="quick-add__submit button button--secondary !twcss-min-w-[auto] twcss-flex-1"
                 aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
                 data-sold-out-message="true"
                 disabled
@@ -428,11 +430,16 @@
                 </span>
               </button>
             {% else %}
-              {% render 'quantity-input', variant: card_product.selected_or_first_available_variant, min: 0 %}
+              {% render 'quantity-input',
+                variant: card_product.selected_or_first_available_variant,
+                min: 0,
+                class: 'twcss-flex-1'
+              %}
             {% endif %}
+            <button class="st-wishlist-button" data-type="details" data-handle="{{ card_product.handle }}"></button>
           </quick-add-bulk>
         {% else %}
-          <div class="quick-add no-js-hidden">
+          <div class="quick-add no-js-hidden twcss-flex twcss-space-x-4">
             {%- liquid
               assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id
               assign qty_rules = false
@@ -443,6 +450,7 @@
             <modal-opener
               id="QuickBulk-{{ card_product.id }}-{{ section_id }}"
               data-modal="#QuickAddBulk-{{ card_product.id }}-{{ section.id }}"
+              class="twcss-flex-1"
             >
               <button
                 id="{{ product_form_id }}-submit"
@@ -457,6 +465,7 @@
                 {%- render 'loading-spinner' -%}
               </button>
             </modal-opener>
+            <button class="st-wishlist-button" data-type="details" data-handle="{{ card_product.handle }}"></button>
             <modal-dialog
               id="QuickAddBulk-{{ card_product.id }}-{{ section_id }}"
               class="quick-add-modal color-{{ section.settings.color_scheme }}"

@@ -5,12 +5,13 @@
   - variant: {Object} Variant object
   - variant_id: {String} Variant ID (optional)
   - min: {Number} Min (optional)
+  - class: {String}
 
   Usage:
   {% render 'quantity-input' variant: variant %}
 {% endcomment %}
 
-<quantity-input class="quantity cart-quantity">
+<quantity-input class="quantity cart-quantity {{ class }}">
   <button class="quantity__button" name="minus" type="button">
     <span class="visually-hidden">
       {{- 'products.product.quantity.decrease' | t: product: variant.title | escape -}}

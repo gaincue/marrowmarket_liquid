@@ -376,6 +376,7 @@ quick-add-modal .product-form__buttons {
   padding: 0.8rem;
   min-width: 100%;
   box-sizing: border-box;
+  flex: 1;
 }
 
 quick-add-modal .product-media-container.constrain-height {
@@ -398,6 +399,15 @@ quick-add-bulk {
   grid-row-start: 4;
   margin: 0 0 1rem;
   z-index: 1;
+}
+
+@media only screen and (min-width: 750px) {
+  quick-add-bulk {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 84px;
+  }
 }
 
 .card__content quick-add-bulk .quantity {
