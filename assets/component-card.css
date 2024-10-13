@@ -614,3 +614,17 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
+
+/* Product Card Hover Rules */
+@media (prefers-reduced-motion: no-preference) and (min-width: 750px) {
+  .product-card-wrapper .quick-add,
+  .product-card-wrapper:hover .card__badge {
+    opacity: 0;
+    transition: opacity var(--duration-default) ease;
+  }
+
+  .product-card-wrapper:hover .quick-add {
+    opacity: 1;
+    transition: opacity var(--duration-medium) ease;
+  }
+}
