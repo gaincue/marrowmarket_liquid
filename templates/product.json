@@ -102,8 +102,8 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "gallery_layout": "stacked",
-        "media_size": "large",
+        "gallery_layout": "vertical_slider",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "mobile_thumbnails": "hide",
         "hide_variants": true,

@@ -334,6 +334,8 @@
 
     setHeaderHeight() {
       document.documentElement.style.setProperty('--header-height', `${this.header.offsetHeight}px`);
+      // NOTE: set marquee height
+      document.documentElement.style.setProperty("--announcement-height", `${document.querySelector(".announcement-bar-marquee").offsetHeight}px`)
     }
 
     disconnectedCallback() {
