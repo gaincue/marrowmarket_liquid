@@ -3,13 +3,13 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
+        // "vendor": {
+        //   "type": "text",
+        //   "settings": {
+        //     "text": "{{ product.vendor }}",
+        //     "text_style": "uppercase"
+        //   }
+        // },
         "title": {
           "type": "title"
         },
@@ -86,14 +86,14 @@
         }
       },
       "block_order": [
-        "vendor",
+        // "vendor",
         "title",
         "caption",
         "price",
+        "description",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
         "collapsible-row-0",
         "collapsible-row-1",
         "collapsible-row-2",
