@@ -66,9 +66,10 @@
             {%- assign empty_column = ' multicolumn-list__item--empty' -%}
           {%- endif -%}
 
+          {% assign mod = forloop.index | modulo: 2 %}
           <li
             id="Slide-{{ section.id }}-{{ forloop.index }}"
-            class="multicolumn-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}{{ empty_column }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="multicolumn-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}{{ empty_column }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} {% if section.settings.column_alignment == 'page_center' and mod == 1 %}twcss-flex twcss-justify-end{% endif %}"
             {{ block.shopify_attributes }}
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
@@ -118,7 +119,7 @@
                   </div>
                 </div>
               {%- endif -%}
-              <div class="multicolumn-card__info">
+              <div class="multicolumn-card__info {% if section.settings.column_alignment == 'page_center'%}!twcss-py-0 !twcss-px-2{% endif %}">
                 {%- if block.settings.title != blank -%}
                   <h3 class="inline-richtext">{{ block.settings.title }}</h3>
                 {%- endif -%}
@@ -127,7 +128,7 @@
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
                   <a
-                    class="link animate-arrow"
+                    class="link animate-arrow {% if section.settings.column_alignment == 'page_center'%}!twcss-border !twcss-border-solid twcss-py-4 twcss-px-8{% endif %}"
                     {% if block.settings.link == blank %}
                       role="link" aria-disabled="true"
                     {% else %}
@@ -135,8 +136,8 @@
                     {% endif %}
                   >
                     {{- block.settings.link_label | escape -}}
-                    <span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span></a
-                  >
+                    {% comment %} <span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span> {% endcomment %}
+                  </a>
                 {%- endif -%}
               </div>
             </div>
@@ -295,6 +296,10 @@
         {
           "value": "center",
           "label": "t:sections.multicolumn.settings.column_alignment.options__2.label"
+        },
+        {
+          "value": "page_center",
+          "label": "Page Center"
         }
       ],
       "default": "left",
