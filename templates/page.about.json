@@ -1,0 +1,70 @@
+{
+    "sections": {
+      "main": {
+        "type": "main-page",
+        "settings": {
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "aboutContent": {
+        "type": "multirow",
+        "blocks": {
+          "row_about_1": {
+            "type": "row",
+            "settings": {
+              "caption": "",
+              "heading": "<strong>Our Story</strong>",
+              "text": "<p>A lifestyle brand rooted in the exploration of modern living and its core elements. Crafted to seamlessly integrate into your life until, like the circle of life, a new narrative unfolds.</p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "row_about_2": {
+            "type": "row",
+            "settings": {
+              "caption": "",
+              "heading": "<strong>Marrow Market</strong><em><strong> </strong></em><strong>isn't just a store; it's a marketplace of ideas, sparked by the everyday people. </strong>",
+              "text": "<p>Founded in 2024 by a collective of passionate creative minds,who believe the seeds of endless possibility lie hidden in the moments of everyday life.</p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "row_about_3": {
+            "type": "row",
+            "settings": {
+              "caption": "",
+              "heading": "",
+              "text": "<p>We enter this world, bone and <em>*marrow</em>—dreams and identities, ours to carve, before life comes full circle, before a clean slate. Our mission is to celebrate the overlooked but essential—much like marrow within the bone—that keep the body and spirit moving, evolving, and alive. </p><p>Think of our collections as companions, which exist to integrate into the lives of those who refuse to take on regular life, regularly; for everyday creatures whose existence is inherently creative. Seeking, wandering, but never settling, as new narratives unfold, as you find your place in this world.</p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "row_about_1",
+          "row_about_2",
+          "row_about_3"
+        ],
+        "settings": {
+          "image_height": "medium",
+          "desktop_image_width": "medium",
+          "heading_size": "h1",
+          "text_style": "body",
+          "button_style": "secondary",
+          "desktop_content_position": "middle",
+          "desktop_content_alignment": "left",
+          "image_layout": "alternate-left",
+          "section_color_scheme": "",
+          "row_color_scheme": "",
+          "mobile_content_alignment": "left",
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      }
+    },
+    "order": [
+      "main",
+      "aboutContent"
+    ]
+  }
