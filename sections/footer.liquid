@@ -299,6 +299,17 @@
             </div>
           {%- endif -%}
 
+          {% if section.settings.footer_logo %}
+            <div class="footer-logo">
+              <img
+                src="{{ section.settings.footer_logo | image_url: width: 250, height: 80 }}"
+                alt="Footer Logo"
+                width="250"
+                height="80"
+              >
+            </div>
+          {% endif %}
+
           {%- if section.settings.show_social and has_social_icons -%}
             {%- render 'social-icons', class: 'footer__list-social' -%}
           {%- endif -%}
@@ -510,18 +521,6 @@
       "info": "t:sections.footer.settings.header__1.info"
     },
     {
-      "type": "checkbox",
-      "id": "newsletter_enable",
-      "default": true,
-      "label": "t:sections.footer.settings.newsletter_enable.label"
-    },
-    // {
-    //   "type": "inline_richtext",
-    //   "id": "newsletter_heading",
-    //   "default": "t:sections.footer.settings.newsletter_heading.default",
-    //   "label": "t:sections.footer.settings.newsletter_heading.label"
-    // },
-    {
       "type": "header",
       "content": "t:sections.footer.settings.header__9.content",
       "info": "t:sections.footer.settings.header__9.info"
@@ -536,6 +535,11 @@
       "type": "header",
       "content": "t:sections.footer.settings.header__2.content",
       "info": "t:sections.footer.settings.header__2.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Footer Logo"
     },
     {
       "type": "checkbox",
