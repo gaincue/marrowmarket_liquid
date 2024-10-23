@@ -15,7 +15,7 @@
         "heading_7Qn9pC": {
           "type": "heading",
           "settings": {
-            "heading": "{{ page.title }}",
+            "heading": "Frequently Asked Question",
             "heading_size": "h1"
           }
         },
