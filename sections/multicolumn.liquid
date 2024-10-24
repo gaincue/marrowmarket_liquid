@@ -128,7 +128,7 @@
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
                   <a
-                    class="link animate-arrow {% if section.settings.column_alignment == 'page_center'%}!twcss-border !twcss-border-solid twcss-py-4 twcss-px-8{% endif %}"
+                    class="link animate-arrow {% if section.settings.column_alignment == 'page_center'%}!twcss-border !twcss-border-solid twcss-py-4 twcss-w-[150px] twcss-text-center{% endif %}"
                     {% if block.settings.link == blank %}
                       role="link" aria-disabled="true"
                     {% else %}
