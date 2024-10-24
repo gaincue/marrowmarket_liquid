@@ -1,0 +1,198 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_e8nrLn": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7Qn9pC": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Shipping & Delivery</strong>",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7Qn9pC"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "collapsible_content_NRMeiM": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_b4mbEe": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does delivery take?",
+            "icon": "none",
+            "row_content": "<p>Delivery times vary depending on your location. Please allow <strong>3-7 business days</strong> for your order to be processed and shipped. International orders may take longer due to customs clearance and any unforeseen delays. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_rgtHPq": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I track my order?",
+            "icon": "none",
+            "row_content": "<p>Once your order is shipped, you will receive an order confirmation email with a tracking number. Pop it into our tracking page, and follow your order's journey to your door! </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_VPVFqQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you ship internationally?",
+            "icon": "none",
+            "row_content": "<p>Yes, we offer international shipping to these regions below. Here’s where we ship to so far:</p><ul><li><strong>Southeast Asia (SEA):</strong> Singapore, Thailand, Indonesia, Philippines, Vietnam</li><li><strong>Asia:</strong> China, Taiwan, Japan, South Korea</li><li><strong>Others:</strong> Australia, United States, United KingdomShipping times and costs vary by location and will be calculated at checkout. </li></ul><p>Can’t find your country on the list? Stay tuned! We're always expanding! Please contact us at <a href=\"mailto:help@marrowmarket.com\"><span style=\"text-decoration:underline\"><strong>help@marrowmarket.com</strong></span></a></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_CDjDr7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What happens if my package is lost or delayed?",
+            "icon": "none",
+            "row_content": "<p>If your package seems to be taking a detour, don’t worry! Please contact our customer service team and we’ll work with the carrier in resolving this in a timely manner.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_wH9xaz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I pick up my order at your HQ?",
+            "icon": "none",
+            "row_content": "<p>Right now, we’re all about door-to-door delivery! We don’t offer self pickups, but we’ll make sure your package arrives at your doorstep safely.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_b4mbEe",
+        "collapsible_row_rgtHPq",
+        "collapsible_row_VPVFqQ",
+        "collapsible_row_CDjDr7",
+        "collapsible_row_wH9xaz"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_8HGcCj": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_i6X4tw": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Payment",
+            "link": ""
+          }
+        },
+        "column_RaQQmP": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Shipping",
+            "link": ""
+          }
+        },
+        "column_eHhiPJ": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Returns",
+            "link": ""
+          }
+        },
+        "column_Pc7KEV": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Products",
+            "link": ""
+          }
+        },
+        "column_z96tjG": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Orders",
+            "link": ""
+          }
+        },
+        "column_te6yQp": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Sale",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_i6X4tw",
+        "column_RaQQmP",
+        "column_eHhiPJ",
+        "column_Pc7KEV",
+        "column_z96tjG",
+        "column_te6yQp"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "page_center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "rich_text_e8nrLn",
+    "collapsible_content_NRMeiM",
+    "multicolumn_8HGcCj"
+  ]
+}
