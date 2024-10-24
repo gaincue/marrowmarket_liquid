@@ -285,7 +285,20 @@
 }
 
 quick-add-modal .product:not(.featured-product) .product__view-details {
-  display: block;
+  display: flex;
+}
+
+quick-add-modal media-gallery,
+quick-add-modal slider-component,
+quick-add-modal .product__media-list,
+quick-add-modal .product__media-item {
+  height: 100%;
+}
+
+quick-add-modal .product-media-container {
+  height: 100%;
+  --preview-ratio: 0.72 !important;
+  --ratio : 0.72 !important;
 }
 
 .quick-add-modal__content--bulk .product__view-details .icon {

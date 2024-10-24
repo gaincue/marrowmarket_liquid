@@ -42,42 +42,24 @@
   endif
 -%}
 
-{% if section.settings.gallery_layout == 'vertical_slider' %}
-  <div>
-    <swiper-container
-      class="product-media-vertical"
-      init="false"
-    >
-      {% for media in product.media %}
-        <swiper-slide>
-          <div class="twcss-h-full twcss-w-full">
-            {{
-              media.preview_image
-              | image_url: width: 1946
-              | image_tag:
-                class: image_class,
-                loading: lazy,
-                sizes: sizes,
-                widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
-            }}
-          </div>
-        </swiper-slide>
-      {% endfor %}
-    </swiper-container>
+{%- capture content_for_querystring -%}{{- content_for_header -}}{%- endcapture -%}
 
-    <div class="max-md:twcss-hidden product-media-vertical-thumbs twcss-absolute twcss-top-[var(--header-height)] twcss-w-1/2 twcss-z-10">
-      <div class="twcss-sticky twcss-top-1/2 twcss-left-4 twcss-w-3 -twcss-translate-y-1/2 twcss-flex twcss-flex-col twcss-space-y-2">
-        {% for media in product.media %}
-          <button
-            data-index="{{ forloop.index0 }}"
-            class="twcss-border twcss-border-flesh twcss-bg-skin twcss-w-3 twcss-h-3 twcss-rounded-full"
-            {% comment %} isActive && 'bg-orange', {% endcomment %}
-          ></button>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-{% else %}
+{% comment %} Use string splitting to pull the value from content_for_header and apply some string clean up {% endcomment %}
+{%- assign page_url = content_for_querystring
+  | split: '"pageurl":"'
+  | last
+  | split: '"'
+  | first
+  | split: '.myshopify.com'
+  | last
+  | replace: '\/', '/'
+  | replace: '%20', ' '
+  | replace: '\u0026', '&'
+-%}
+
+{%- assign page_querystring = page_url | split: '?' | last -%}
+
+{% if section.settings.gallery_layout != 'vertical_slider' or page_querystring contains 'media=horizontal' %}
   <media-gallery
     id="MediaGallery-{{ section.id }}"
     role="region"
@@ -230,11 +212,11 @@
           class="thumbnail-list list-unstyled slider slider--mobile{% if section.settings.gallery_layout == 'thumbnail_slider' %} slider--tablet-up{% endif %}"
         >
           {%- capture sizes -%}
-              (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width | minus: 100 | times: media_width | round }} - 4rem) / 4),
-              (min-width: 990px) calc(({{ media_width | times: 100 }}vw - 4rem) / 4),
-              (min-width: 750px) calc((100vw - 15rem) / 8),
-              calc((100vw - 8rem) / 3)
-            {%- endcapture -%}
+            (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width | minus: 100 | times: media_width | round }} - 4rem) / 4),
+            (min-width: 990px) calc(({{ media_width | times: 100 }}vw - 4rem) / 4),
+            (min-width: 750px) calc((100vw - 15rem) / 8),
+            calc((100vw - 8rem) / 3)
+          {%- endcapture -%}
 
           {%- if featured_media != null -%}
             {%- liquid
@@ -256,8 +238,8 @@
               data-media-position="{{ media_index }}"
             >
               {%- capture thumbnail_id -%}
-                  Thumbnail-{{ section.id }}-0
-                {%- endcapture -%}
+                Thumbnail-{{ section.id }}-0
+              {%- endcapture -%}
               <button
                 class="thumbnail global-media-settings global-media-settings--no-shadow"
                 aria-label="{%- if featured_media.media_type == 'image' -%}{{ 'products.product.media.load_image' | t: index: media_index }}{%- elsif featured_media.media_type == 'model' -%}{{ 'products.product.media.load_model' | t: index: media_index }}{%- elsif featured_media.media_type == 'video' or featured_media.media_type == 'external_video' -%}{{ 'products.product.media.load_video' | t: index: media_index }}{%- endif -%}"
@@ -309,8 +291,8 @@
                   </span>
                 {%- endif -%}
                 {%- capture thumbnail_id -%}
-                    Thumbnail-{{ section.id }}-{{ forloop.index }}
-                  {%- endcapture -%}
+                  Thumbnail-{{ section.id }}-{{ forloop.index }}
+                {%- endcapture -%}
                 <button
                   class="thumbnail global-media-settings global-media-settings--no-shadow"
                   aria-label="{%- if media.media_type == 'image' -%}{{ 'products.product.media.load_image' | t: index: media_index }}{%- elsif media.media_type == 'model' -%}{{ 'products.product.media.load_model' | t: index: media_index }}{%- elsif media.media_type == 'video' or media.media_type == 'external_video' -%}{{ 'products.product.media.load_video' | t: index: media_index }}{%- endif -%}"
@@ -352,4 +334,40 @@
       </slider-component>
     {%- endif -%}
   </media-gallery>
+
+{% else %}
+  <div>
+    <swiper-container
+      class="product-media-vertical"
+      init="false"
+    >
+      {% for media in product.media %}
+        <swiper-slide>
+          <div class="twcss-h-full twcss-w-full">
+            {{
+              media.preview_image
+              | image_url: width: 1946
+              | image_tag:
+                class: image_class,
+                loading: lazy,
+                sizes: sizes,
+                widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
+            }}
+          </div>
+        </swiper-slide>
+      {% endfor %}
+    </swiper-container>
+
+    <div class="max-md:twcss-hidden product-media-vertical-thumbs twcss-absolute twcss-top-[var(--header-height)] twcss-w-1/2 twcss-z-10">
+      <div class="twcss-sticky twcss-top-1/2 twcss-left-4 twcss-w-3 -twcss-translate-y-1/2 twcss-flex twcss-flex-col twcss-space-y-2">
+        {% for media in product.media %}
+          <button
+            data-index="{{ forloop.index0 }}"
+            class="twcss-border twcss-border-flesh twcss-bg-skin twcss-w-3 twcss-h-3 twcss-rounded-full"
+            {% comment %} isActive && 'bg-orange', {% endcomment %}
+          ></button>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 {% endif %}
