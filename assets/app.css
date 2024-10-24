@@ -599,16 +599,12 @@ video {
   height: 0.75rem;
 }
 
-.twcss-h-full {
-  height: 100%;
-}
-
-.twcss-h-11 {
-  height: 2.75rem;
-}
-
 .twcss-h-\[44px\] {
   height: 44px;
+}
+
+.twcss-h-full {
+  height: 100%;
 }
 
 .twcss-w-1\/2 {
@@ -623,16 +619,12 @@ video {
   width: 150px;
 }
 
-.twcss-w-full {
-  width: 100%;
-}
-
-.twcss-w-11 {
-  width: 2.75rem;
-}
-
 .twcss-w-\[44px\] {
   width: 44px;
+}
+
+.twcss-w-full {
+  width: 100%;
 }
 
 .\!twcss-min-w-\[auto\] {
