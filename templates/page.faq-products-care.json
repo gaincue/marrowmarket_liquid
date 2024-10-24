@@ -15,7 +15,7 @@
         "heading_7Qn9pC": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Returns & Exchanges</strong>",
+            "heading": "<strong>Products & Care</strong>",
             "heading_size": "h1"
           }
         }
@@ -38,45 +38,45 @@
         "collapsible_row_b4mbEe": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What is your return policy?",
+            "heading": "How do I know which size to order?",
             "icon": "none",
-            "row_content": "<p>We’ve got a simple policy—returns are only accepted for defective goods. If you receive an item with a defect, please contact us within <strong>7 days</strong> of receiving your order to arrange for an exchange. Items must be returned in their unworn and unused condition with tags still attached.</p><p>We do not accept returns or exchanges for <strong>socks, fragrances, earrings or body Jewelry, swimwear or undergarments</strong> for hygiene reasons.</p>",
+            "row_content": "<p>We provide a size guide on each product page to help you find the right fit. If you’re still feeling unsure, reach out—we’re here to help you nail the perfect fit!</p>",
             "page": ""
           }
         },
         "collapsible_row_rgtHPq": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I exchange an item if I received the wrong size or color?",
+            "heading": "How should I care for my clothing?",
             "icon": "none",
-            "row_content": "<p>As much as we’d love to accommodate every request, we only handle exchanges for defective items. Unfortunately, size or color swaps aren’t available at the moment</p>",
+            "row_content": "<p>Care instructions for each product are provided on the product page and inside the garment. We recommend following these instructions to extend the life of your items.</p>",
             "page": ""
           }
         },
         "collapsible_row_VPVFqQ": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How do I return a defective item?",
+            "heading": "Can I machine wash all products?",
             "icon": "none",
-            "row_content": "<p>To return a defective item, please email us at <strong>help@marrowmarket.com</strong> with your order number and a description of the defect. Once approved, we’ll provide instructions for the return process and cover any shipping costs.</p>",
+            "row_content": "<p>While most of our products are machine washable, certain items may require hand washing or dry cleaning. Please check the care label on each product.</p>",
             "page": ""
           }
         },
         "collapsible_row_CDjDr7": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How long does it take to process my return?",
+            "heading": "Do you restock sold-out items?",
             "icon": "none",
-            "row_content": "<p>Once we receive your returned item, please allow <strong>3-5 business days</strong> for us to process the return and issue an exchange.</p>",
+            "row_content": "<p>We love bringing back your favorites! If something’s sold out, sign up for back-in-stock notifications on the product page, and we’ll let you know as soon as it’s back in stock!</p>",
             "page": ""
           }
         },
         "collapsible_row_wH9xaz": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What condition do returned items need to be in?",
+            "heading": "Can I request a product that’s not currently offered?",
             "icon": "none",
-            "row_content": "<p>Returned items must be in their original condition, unused, and with all tags and packaging intact. Defective items will be inspected before a return is approved.</p>",
+            "row_content": "<p>We love hearing your ideas! If there’s a product you’d like to see, please let us know at <strong>help@marrowmarket.com</strong>, and we’ll consider it for future collections.</p>",
             "page": ""
           }
         }
