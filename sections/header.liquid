@@ -240,6 +240,13 @@
           </localization-form>
         {%- endif -%}
       </div>
+
+      <a href="#st-wishlist-details-button">
+        <div class="twcss-w-[44px] twcss-h-[44px] twcss-flex twcss-items-center twcss-justify-center">
+          <svg width="20" height="20" class="st-wishlist-icon" style="color: var(--icon-color)"> <use xlink:href="#st_details_icon"></use> </svg>
+        </div>
+      </a>
+
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- if shop.customer_accounts_enabled -%}
