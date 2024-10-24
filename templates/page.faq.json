@@ -15,7 +15,7 @@
         "heading_7Qn9pC": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Shipping & Delivery</strong>",
+            "heading": "<strong>FAQ</strong>",
             "heading_size": "h1"
           }
         }
@@ -35,58 +35,18 @@
     "collapsible_content_NRMeiM": {
       "type": "collapsible-content",
       "blocks": {
-        "collapsible_row_b4mbEe": {
+        "collapsible_row_cDcgTb": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How long does delivery take?",
+            "heading": "Collapsible row",
             "icon": "none",
-            "row_content": "<p>Delivery times vary depending on your location. Please allow <strong>3-7 business days</strong> for your order to be processed and shipped. International orders may take longer due to customs clearance and any unforeseen delays. </p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_rgtHPq": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "How can I track my order?",
-            "icon": "none",
-            "row_content": "<p>Once your order is shipped, you will receive an order confirmation email with a tracking number. Pop it into our tracking page, and follow your order's journey to your door! </p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_VPVFqQ": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Do you ship internationally?",
-            "icon": "none",
-            "row_content": "<p>Yes, we offer international shipping to these regions below. Here’s where we ship to so far:</p><ul><li><strong>Southeast Asia (SEA):</strong> Singapore, Thailand, Indonesia, Philippines, Vietnam</li><li><strong>Asia:</strong> China, Taiwan, Japan, South Korea</li><li><strong>Others:</strong> Australia, United States, United KingdomShipping times and costs vary by location and will be calculated at checkout. </li></ul><p>Can’t find your country on the list? Stay tuned! We're always expanding! Please contact us at <a href=\"mailto:help@marrowmarket.com\"><span style=\"text-decoration:underline\"><strong>help@marrowmarket.com</strong></span></a></p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_CDjDr7": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "What happens if my package is lost or delayed?",
-            "icon": "none",
-            "row_content": "<p>If your package seems to be taking a detour, don’t worry! Please contact our customer service team and we’ll work with the carrier in resolving this in a timely manner.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_wH9xaz": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Can I pick up my order at your HQ?",
-            "icon": "none",
-            "row_content": "<p>Right now, we’re all about door-to-door delivery! We don’t offer self pickups, but we’ll make sure your package arrives at your doorstep safely.</p>",
+            "row_content": "",
             "page": ""
           }
         }
       },
       "block_order": [
-        "collapsible_row_b4mbEe",
-        "collapsible_row_rgtHPq",
-        "collapsible_row_VPVFqQ",
-        "collapsible_row_CDjDr7",
-        "collapsible_row_wH9xaz"
+        "collapsible_row_cDcgTb"
       ],
       "settings": {
         "caption": "",
