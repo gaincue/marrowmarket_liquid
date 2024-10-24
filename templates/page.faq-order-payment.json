@@ -15,7 +15,7 @@
         "heading_7Qn9pC": {
           "type": "heading",
           "settings": {
-            "heading": "Frequently Asked Question",
+            "heading": "<strong>Order & Payment</strong>",
             "heading_size": "h1"
           }
         },
@@ -45,15 +45,65 @@
         "collapsible_row_b4mbEe": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How do i return products?",
+            "heading": "What payment methods do you accept?",
             "icon": "none",
-            "row_content": "<p>Click here!</p>",
+            "row_content": "<p>We accept a variety of payment methods including credit/debit cards, PayPal, Online Bank Transfer (FPX), and other secure e-wallet payment options.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_94T79C": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What should I do if I didn't receive an order confirmation email?",
+            "icon": "none",
+            "row_content": "<p>Check your spam or junk folder first, just in case. If you still haven't received a confirmation email within 24 hours of placing your order, please contact us, and we’ll make sure everything’s in order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_dFVTVW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I change my shipping address after placing an order?",
+            "icon": "none",
+            "row_content": "<p>You can change your shipping address within <strong>24 hours</strong> of placing the order. After that, your order will be processed, and changes may not be possible. If you need to change it, let us know ASAP, and we’ll do our best to help!</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_B6JiHK": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use multiple discount codes on a single order?",
+            "icon": "none",
+            "row_content": "<p>We love a good discount too, but unfortunately, it’s one code per order. Pick the one that gives you the best deal, and enjoy the savings!</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_fQY4x3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you offer installment payment options?",
+            "icon": "none",
+            "row_content": "<p>Not yet, but we’re working on it! Stay tuned for updates as we plan to introduce flexible payment options soon.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Gtyd8B": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What should I do if I receive the wrong product?",
+            "icon": "none",
+            "row_content": "<p>Oops, our bad! If we sent the wrong item, please contact us within 7 days of receiving your order. Share your order details, and we’ll get the right product to you in a flash—on us! You might need to send the wrong one back, but don’t worry, we’ll cover the shipping. </p>",
             "page": ""
           }
         }
       },
       "block_order": [
-        "collapsible_row_b4mbEe"
+        "collapsible_row_b4mbEe",
+        "collapsible_row_94T79C",
+        "collapsible_row_dFVTVW",
+        "collapsible_row_B6JiHK",
+        "collapsible_row_fQY4x3",
+        "collapsible_row_Gtyd8B"
       ],
       "settings": {
         "caption": "",
