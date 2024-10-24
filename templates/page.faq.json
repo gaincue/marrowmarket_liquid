@@ -58,7 +58,7 @@
           "settings": {
             "heading": "Do you ship internationally?",
             "icon": "none",
-            "row_content": "<p>Yes, we offer international shipping to these regions below. Here’s where we ship to so far:</p><ul><li><strong>Southeast Asia (SEA):</strong> Singapore, Thailand, Indonesia, Philippines, Vietnam</li><li><strong>Asia:</strong> China, Taiwan, Japan, South Korea</li></ul><p><strong>Others:</strong> Australia, United States, United KingdomShipping times and costs vary by location and will be calculated at checkout. </p><p>Can’t find your country on the list? Stay tuned! We're always expanding! Please contact us at <a href=\"mailto:help@marrowmarket.com\"><span style=\"text-decoration:underline\"><strong>help@marrowmarket.com</strong></span></a></p>",
+            "row_content": "<p>Yes, we offer international shipping to these regions below. Here’s where we ship to so far:</p><ul><li><strong>Southeast Asia (SEA):</strong> Singapore, Thailand, Indonesia, Philippines, Vietnam</li><li><strong>Asia:</strong> China, Taiwan, Japan, South Korea</li><li><strong>Others:</strong> Australia, United States, United KingdomShipping times and costs vary by location and will be calculated at checkout. </li></ul><p>Can’t find your country on the list? Stay tuned! We're always expanding! Please contact us at <a href=\"mailto:help@marrowmarket.com\"><span style=\"text-decoration:underline\"><strong>help@marrowmarket.com</strong></span></a></p>",
             "page": ""
           }
         },
