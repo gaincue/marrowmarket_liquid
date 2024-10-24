@@ -111,8 +111,8 @@
           "settings": {
             "title": "",
             "text": "",
-            "link_label": "Order & Payment",
-            "link": ""
+            "link_label": "Order",
+            "link": "shopify://pages/frequently-asked-questions"
           }
         },
         "column_RaQQmP": {
@@ -120,8 +120,8 @@
           "settings": {
             "title": "",
             "text": "",
-            "link_label": "Shipping & Delivery",
-            "link": ""
+            "link_label": "Shipping",
+            "link": "shopify://pages/faq-shipping-delivery"
           }
         },
         "column_te6yQp": {
@@ -129,8 +129,8 @@
           "settings": {
             "title": "",
             "text": "",
-            "link_label": "Products & Care",
-            "link": ""
+            "link_label": "Products",
+            "link": "shopify://pages/faq-products-care"
           }
         }
       },
