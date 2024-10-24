@@ -45,9 +45,9 @@
         "collapsible_row_b4mbEe": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
+            "heading": "How do i return products?",
             "icon": "none",
-            "row_content": "",
+            "row_content": "<p>Click here!</p>",
             "page": ""
           }
         }
@@ -78,7 +78,7 @@
           "settings": {
             "title": "",
             "text": "",
-            "link_label": "Button",
+            "link_label": "Payment",
             "link": ""
           }
         },
@@ -87,7 +87,7 @@
           "settings": {
             "title": "",
             "text": "",
-            "link_label": "Button",
+            "link_label": "Shipping",
             "link": ""
           }
         },
@@ -96,7 +96,34 @@
           "settings": {
             "title": "",
             "text": "",
-            "link_label": "Button",
+            "link_label": "Returns",
+            "link": ""
+          }
+        },
+        "column_Pc7KEV": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Products",
+            "link": ""
+          }
+        },
+        "column_z96tjG": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Orders",
+            "link": ""
+          }
+        },
+        "column_te6yQp": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Sale",
             "link": ""
           }
         }
@@ -104,7 +131,10 @@
       "block_order": [
         "column_i6X4tw",
         "column_RaQQmP",
-        "column_eHhiPJ"
+        "column_eHhiPJ",
+        "column_Pc7KEV",
+        "column_z96tjG",
+        "column_te6yQp"
       ],
       "custom_css": [
 
