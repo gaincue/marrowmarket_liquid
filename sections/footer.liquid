@@ -298,7 +298,9 @@
               {{ shop | login_button: action: 'follow' }}
             </div>
           {%- endif -%}
+        </div>
 
+        <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {% if section.settings.footer_logo %}
             <div class="footer-logo">
               <img
