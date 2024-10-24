@@ -616,6 +616,10 @@ video {
   width: 0.75rem;
 }
 
+.twcss-w-\[150px\] {
+  width: 150px;
+}
+
 .twcss-w-full {
   width: 100%;
 }
@@ -714,11 +718,6 @@ video {
   padding-bottom: 0px !important;
 }
 
-.twcss-px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
 .twcss-py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -726,6 +725,10 @@ video {
 
 .twcss-text-center {
   text-align: center;
+}
+
+.twcss-text-start {
+  text-align: start;
 }
 
 .\!twcss-text-charcoal {
