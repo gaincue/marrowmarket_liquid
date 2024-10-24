@@ -1,0 +1,168 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_e8nrLn": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_7Qn9pC": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Returns & Exchanges</strong>",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7Qn9pC"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "collapsible_content_NRMeiM": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_b4mbEe": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your return policy?",
+            "icon": "none",
+            "row_content": "<p>We’ve got a simple policy—returns are only accepted for defective goods. If you receive an item with a defect, please contact us within <strong>7 days</strong> of receiving your order to arrange for an exchange. Items must be returned in their unworn and unused condition with tags still attached.</p><p>We do not accept returns or exchanges for <strong>socks, fragrances, earrings or body Jewelry, swimwear or undergarments</strong> for hygiene reasons.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_rgtHPq": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I exchange an item if I received the wrong size or color?",
+            "icon": "none",
+            "row_content": "<p>As much as we’d love to accommodate every request, we only handle exchanges for defective items. Unfortunately, size or color swaps aren’t available at the moment</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_VPVFqQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I return a defective item?",
+            "icon": "none",
+            "row_content": "<p>To return a defective item, please email us at <strong>help@marrowmarket.com</strong> with your order number and a description of the defect. Once approved, we’ll provide instructions for the return process and cover any shipping costs.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_CDjDr7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does it take to process my return?",
+            "icon": "none",
+            "row_content": "<p>Once we receive your returned item, please allow <strong>3-5 business days</strong> for us to process the return and issue an exchange.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_wH9xaz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What condition do returned items need to be in?",
+            "icon": "none",
+            "row_content": "<p>Returned items must be in their original condition, unused, and with all tags and packaging intact. Defective items will be inspected before a return is approved.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_b4mbEe",
+        "collapsible_row_rgtHPq",
+        "collapsible_row_VPVFqQ",
+        "collapsible_row_CDjDr7",
+        "collapsible_row_wH9xaz"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_8HGcCj": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_i6X4tw": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Order & Payment",
+            "link": ""
+          }
+        },
+        "column_RaQQmP": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Shipping & Delivery",
+            "link": ""
+          }
+        },
+        "column_te6yQp": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Products & Care",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_i6X4tw",
+        "column_RaQQmP",
+        "column_te6yQp"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "page_center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "rich_text_e8nrLn",
+    "collapsible_content_NRMeiM",
+    "multicolumn_8HGcCj"
+  ]
+}
