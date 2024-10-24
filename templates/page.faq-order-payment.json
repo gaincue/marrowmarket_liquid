@@ -123,33 +123,6 @@
     "multicolumn_8HGcCj": {
       "type": "multicolumn",
       "blocks": {
-        "column_i6X4tw": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "Payment",
-            "link": ""
-          }
-        },
-        "column_RaQQmP": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "Shipping",
-            "link": ""
-          }
-        },
-        "column_eHhiPJ": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "Returns",
-            "link": ""
-          }
-        },
         "column_Pc7KEV": {
           "type": "column",
           "settings": {
@@ -179,9 +152,6 @@
         }
       },
       "block_order": [
-        "column_i6X4tw",
-        "column_RaQQmP",
-        "column_eHhiPJ",
         "column_Pc7KEV",
         "column_z96tjG",
         "column_te6yQp"
