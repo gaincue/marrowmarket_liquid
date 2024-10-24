@@ -111,7 +111,7 @@
           "settings": {
             "title": "",
             "text": "",
-            "link_label": "Payment",
+            "link_label": "Order & Payment",
             "link": ""
           }
         },
@@ -120,34 +120,7 @@
           "settings": {
             "title": "",
             "text": "",
-            "link_label": "Shipping",
-            "link": ""
-          }
-        },
-        "column_eHhiPJ": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "Returns",
-            "link": ""
-          }
-        },
-        "column_Pc7KEV": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "Products",
-            "link": ""
-          }
-        },
-        "column_z96tjG": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "Orders",
+            "link_label": "Returns & Exchanges",
             "link": ""
           }
         },
@@ -156,7 +129,7 @@
           "settings": {
             "title": "",
             "text": "",
-            "link_label": "Sale",
+            "link_label": "Products & Care",
             "link": ""
           }
         }
@@ -164,9 +137,6 @@
       "block_order": [
         "column_i6X4tw",
         "column_RaQQmP",
-        "column_eHhiPJ",
-        "column_Pc7KEV",
-        "column_z96tjG",
         "column_te6yQp"
       ],
       "custom_css": [
