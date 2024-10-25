@@ -146,7 +146,17 @@
         </div>
       </div>
       <div class="card__content">
-        <div class="card__information">
+        {%- liquid
+          assign has_color = false
+          for variant in card_product.variants
+            if variant.metafields.custom.color
+              assign has_color = true
+              break
+            endif
+          endfor
+        -%}
+
+        <div class="card__information {% if has_color %}card__hidden{% endif %}">
           <h3
             class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
             {% if card_product.featured_media or settings.card_style == 'card' %}
@@ -307,6 +317,18 @@
             </span>
           {%- endif -%}
         </div>
+
+        {% if has_color %}
+          <div class="card__options twcss-gap-4">
+            {%- for variant in card_product.variants -%}
+              {% if variant.metafields.custom.color %}
+                <span
+                  style="background-color: {{ variant.metafields.custom.color }}; width: 20px; height: 20px; display: inline-block; border: 1px solid black;"
+                ></span>
+              {%- endif %}
+            {%- endfor %}
+          </div>
+        {% endif %}
       </div>
 
       {% comment %} on hover shows add to cart {% endcomment %}
@@ -408,6 +430,7 @@
             <button class="st-wishlist-button" data-type="details" data-handle="{{ card_product.handle }}"></button>
           {%- endif -%}
         </div>
+
       {% elsif quick_add == 'bulk' %}
         {% if card_product.variants.size == 1 %}
           <quick-add-bulk

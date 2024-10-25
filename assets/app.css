@@ -668,6 +668,10 @@ video {
   justify-content: center;
 }
 
+.twcss-gap-4 {
+  gap: 1rem;
+}
+
 .twcss-gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
@@ -734,14 +738,6 @@ video {
 .twcss-py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.twcss-pt-\[50px\] {
-  padding-top: 50px;
-}
-
-.twcss-pt-\[30px\] {
-  padding-top: 30px;
 }
 
 .twcss-text-center {
