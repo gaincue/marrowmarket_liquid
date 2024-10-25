@@ -122,7 +122,7 @@
             "title": "",
             "text": "",
             "link_label": "Shipping",
-            "link": "shopify://pages/faq-shipping-delivery"
+            "link": "shopify://pages/shipping-delivery"
           }
         },
         "column_z96tjG": {
@@ -140,7 +140,7 @@
             "title": "",
             "text": "",
             "link_label": "Products",
-            "link": "shopify://pages/faq-products-care"
+            "link": "shopify://pages/products-care"
           }
         }
       },
