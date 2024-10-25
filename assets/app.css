@@ -736,6 +736,14 @@ video {
   padding-bottom: 1rem;
 }
 
+.twcss-pt-\[50px\] {
+  padding-top: 50px;
+}
+
+.twcss-pt-\[30px\] {
+  padding-top: 30px;
+}
+
 .twcss-text-center {
   text-align: center;
 }
@@ -785,5 +793,9 @@ video {
 @media (min-width: 990px) {
   .lg\:twcss-flex {
     display: flex;
+  }
+
+  .lg\:twcss-pt-\[50px\] {
+    padding-top: 50px;
   }
 }
