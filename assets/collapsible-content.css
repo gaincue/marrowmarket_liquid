@@ -129,3 +129,11 @@
     }
   }
 }
+
+.accordion__content ul {
+  list-style-type: disc !important
+}
+
+.accordion__content ol {
+  list-style-type: decimal !important
+}
