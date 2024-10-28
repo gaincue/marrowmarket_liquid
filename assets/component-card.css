@@ -422,7 +422,8 @@
 
   .card-wrapper:hover .media.media--hover-effect > img + img {
     opacity: 1;
-    transition: transform var(--duration-long) ease;
+    /* transition: transform var(--duration-long) ease; */
+    transition: opacity 0.4s ease;
     transform: scale(1.03);
   }
 
