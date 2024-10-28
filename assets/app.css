@@ -725,6 +725,11 @@ video {
   background-color: rgb(252 250 237 / var(--tw-bg-opacity));
 }
 
+.twcss-bg-flesh {
+  --tw-bg-opacity: 1;
+  background-color: rgb(171 18 28 / var(--tw-bg-opacity));
+}
+
 .\!twcss-px-2 {
   padding-left: 0.5rem !important;
   padding-right: 0.5rem !important;
