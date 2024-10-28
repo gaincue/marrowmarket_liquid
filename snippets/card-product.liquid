@@ -323,7 +323,7 @@
             {%- for variant in card_product.variants -%}
               {% if variant.metafields.custom.color %}
                 <span
-                  style="background-color: {{ variant.metafields.custom.color }}; width: 20px; height: 20px; display: inline-block; border: 1px solid black;"
+                  style="background-color: {{ variant.metafields.custom.color }}; width: 20px; height: 20px; display: inline-block; border: 1px solid black; border-radius: 100px"
                 ></span>
               {%- endif %}
             {%- endfor %}
