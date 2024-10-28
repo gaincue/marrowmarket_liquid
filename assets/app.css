@@ -705,6 +705,10 @@ video {
   border-style: solid !important;
 }
 
+.\!twcss-border-none {
+  border-style: none !important;
+}
+
 .twcss-border-flesh {
   --tw-border-opacity: 1;
   border-color: rgb(171 18 28 / var(--tw-border-opacity));
