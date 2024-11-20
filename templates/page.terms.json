@@ -15,32 +15,9 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
-    },
-    "rich_text_6nhWEn": {
-      "type": "rich-text",
-      "blocks": {
-        "text_JGc3hW": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Join our dynamic team at Marrow Market! If you're passionate about creativity, collaboration, and making an impact, we'd love to hear from you. To explore exciting career opportunities, please email to us at help@marrowmarket.com</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_JGc3hW"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
     }
   },
   "order": [
-    "main",
-    "rich_text_6nhWEn"
+    "main"
   ]
 }
