@@ -469,6 +469,9 @@ menu {
 .terms-page ul {
   list-style: decimal;
   list-style-position: outside !important;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 /*
