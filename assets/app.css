@@ -468,7 +468,7 @@ menu {
 .terms-page ol,
 .terms-page ul {
   list-style: decimal;
-  list-style-position: outside;
+  list-style-position: outside !important;
 }
 
 /*
