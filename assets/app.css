@@ -465,6 +465,12 @@ menu {
   padding: 0;
 }
 
+.terms-page ol,
+.terms-page ul {
+  list-style: decimal;
+  list-style-position: outside;
+}
+
 /*
 Reset default styling for dialogs.
 */
