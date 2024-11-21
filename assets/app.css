@@ -465,6 +465,8 @@ menu {
   padding: 0;
 }
 
+.shopify-policy__container ol,
+.shopify-policy__container ul,
 .terms-page ol,
 .terms-page ul {
   list-style: decimal;
@@ -473,6 +475,12 @@ menu {
   flex-direction: column;
   gap: 2rem;
 }
+
+.shopify-policy__title {
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+
 
 /*
 Reset default styling for dialogs.
