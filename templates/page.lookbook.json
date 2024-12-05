@@ -8,74 +8,74 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-      "image_banner_rR9XdY": {
-        "type": "image-banner",
-        "settings": {
-          "content_type": "product",
-          "product": "",
-          "collection": "",
-          "image_overlay_opacity": 0,
-          "image_height": "medium",
-          "desktop_content_position": "middle-center",
-          "show_text_box": true,
-          "desktop_content_alignment": "center",
-          "color_scheme": "",
-          "image_behavior": "none",
-          "mobile_content_position": "bottom-left",
-          "mobile_content_alignment": "center",
-          "stack_images_on_mobile": true,
-          "show_text_below": true
-        }
-      },
-      "multicolumn_YwrDLm": {
-        "type": "multicolumn",
-        "blocks": {
-          "column_gCNUrc": {
-            "type": "column",
-            "settings": {
-              "image": "shopify://shop_images/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
-              "title": "",
-              "text": "",
-              "link_label": "",
-              "link": ""
-            }
-          },
-          "column_wwjyjT": {
-            "type": "column",
-            "settings": {
-              "image": "shopify://shop_images/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
-              "title": "",
-              "text": "",
-              "link_label": "",
-              "link": ""
-            }
-          }
-        },
-        "block_order": [
-          "column_gCNUrc",
-          "column_wwjyjT"
-        ],
-        "settings": {
-          "title": "",
-          "heading_size": "h1",
-          "image_width": "full",
-          "image_ratio": "portrait",
-          "columns_desktop": 3,
-          "column_alignment": "left",
-          "background_style": "none",
-          "button_label": "",
-          "button_link": "",
-          "color_scheme": "",
-          "columns_mobile": "1",
-          "swipe_on_mobile": false,
-          "padding_top": 36,
-          "padding_bottom": 36
-        }
+  "sections": {
+    "image_banner_rR9XdY": {
+      "type": "image-banner",
+      "settings": {
+        "content_type": "product",
+        "product": "",
+        "collection": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_position": "bottom-left",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
       }
     },
-    "order": [
-      "image_banner_rR9XdY",
-      "multicolumn_YwrDLm"
-    ]
-  }
+    "multicolumn_YwrDLm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_gCNUrc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC05495_340ef362-68be-4542-aabc-4de025addd2b.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wwjyjT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_gCNUrc",
+        "column_wwjyjT"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_rR9XdY",
+    "multicolumn_YwrDLm"
+  ]
+}
