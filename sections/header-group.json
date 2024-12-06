@@ -36,14 +36,14 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Announcement 1",
+            "text": "Free Shipping within Malaysia",
             "link": ""
           }
         },
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "Announcement 2",
+            "text": "15th - 17th Dec 2024",
             "link": ""
           }
         }
