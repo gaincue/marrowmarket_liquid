@@ -12,28 +12,28 @@
     "image_banner": {
       "type": "image-banner",
       "blocks": {
-        "image": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/MM_Logo_Final.png"
-          }
-        },
         "heading": {
           "type": "heading",
+          "disabled": true,
           "settings": {
-            "heading": "The Marrow Supermart",
+            "heading": "<strong>The Marrow Supermart</strong>",
             "heading_size": "h1"
           }
+        },
+        "image": {
+          "type": "image",
+          "settings": {}
         }
       },
       "block_order": [
-        "image",
-        "heading"
+        "heading",
+        "image"
       ],
       "settings": {
         "content_type": "collection",
         "product": "brie-truffle-tee",
         "collection": "the-marrow-supermart",
+        "image": "shopify://shop_images/DSC06838_2828a581-458d-45f4-8c43-6ecfc4d90008.png",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "middle-center",
@@ -50,7 +50,7 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "New In",
+        "title": "<strong>New In</strong>",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
