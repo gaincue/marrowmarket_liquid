@@ -34,7 +34,7 @@
         "product": "brie-truffle-tee",
         "collection": "the-marrow-supermart",
         "image": "shopify://shop_images/DSC06838_2828a581-458d-45f4-8c43-6ecfc4d90008.png",
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 0,
         "image_height": "large",
         "desktop_content_position": "middle-center",
         "show_text_box": false,
