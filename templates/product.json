@@ -106,7 +106,7 @@
         "color_scheme": "scheme-1",
         "media_size": "medium",
         "constrain_to_viewport": true,
-        "media_fit": "contain",
+        "media_fit": "cover",
         "gallery_layout": "vertical_slider",
         "media_position": "left",
         "image_zoom": "hover",
