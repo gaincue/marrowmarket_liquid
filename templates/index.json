@@ -9,42 +9,58 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "slideshow_XYEtJh": {
+      "type": "slideshow",
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "disabled": true,
+        "slide_nYgyfE": {
+          "type": "slide",
           "settings": {
-            "heading": "<strong>The Marrow Supermart</strong>",
-            "heading_size": "h1"
+            "image": "shopify://shop_images/DSC06856_3.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
           }
         },
-        "image": {
-          "type": "image",
-          "settings": {}
+        "slide_3bWUg8": {
+          "type": "slide",
+          "settings": {
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
         }
       },
       "block_order": [
-        "heading",
-        "image"
+        "slide_nYgyfE",
+        "slide_3bWUg8"
       ],
       "settings": {
-        "content_type": "collection",
-        "product": "brie-truffle-tee",
-        "collection": "the-marrow-supermart",
-        "image": "shopify://shop_images/DSC06856_2.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
         "image_behavior": "none",
-        "mobile_content_position": "bottom-left",
-        "mobile_content_alignment": "left",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
       }
     },
     "featured_collection": {
@@ -77,7 +93,7 @@
     }
   },
   "order": [
-    "image_banner",
+    "slideshow_XYEtJh",
     "featured_collection"
   ]
 }
