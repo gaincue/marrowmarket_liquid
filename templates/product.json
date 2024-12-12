@@ -31,18 +31,18 @@
           "type": "description",
           "settings": {}
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
           }
         },
         "collapsible-row-0": {
@@ -93,8 +93,8 @@
         "caption",
         "price",
         "description",
-        "variant_picker",
         "buy_buttons",
+        "variant_picker",
         "collapsible-row-0",
         "collapsible-row-1",
         "collapsible-row-2",
