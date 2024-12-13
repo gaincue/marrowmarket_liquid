@@ -59,7 +59,7 @@
           "settings": {
             "heading": "Care instruction",
             "icon": "check_mark",
-            "content": "",
+            "content": "<ul><li>Hand wash with mild detergent.</li><li>Avoid bleach or harsh chemicals</li><li>Do not tumble dry.</li><li>Dark colors may transfer; wash separately.</li></ul>",
             "page": ""
           }
         },
