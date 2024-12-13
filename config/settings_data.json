@@ -140,9 +140,19 @@
     },
     "content_for_index": [],
     "blocks": {
+      "6174324309569838175": {
+        "type": "shopify://apps/smile-io/blocks/smile-shopify-app/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+        "disabled": false,
+        "settings": {}
+      },
+      "13768625480086291342": {
+        "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
+        "disabled": true,
+        "settings": {}
+      },
       "6933373160360723723": {
         "type": "shopify://apps/swishlist-simple-wishlist/blocks/wishlist_settings/bfcb80f2-f00d-42ae-909a-9f00c726327b",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     },
