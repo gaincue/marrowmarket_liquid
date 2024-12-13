@@ -50,7 +50,16 @@
           "settings": {
             "heading": "Materials",
             "icon": "leather",
-            "content": "<p>Cotton</p>",
+            "content": "<p>Body : 100% Cotton <br/>Inner Band : 100% Polyester <br/>Interlining : 100% Polyester </p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_FVTExD": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Care instruction",
+            "icon": "check_mark",
+            "content": "",
             "page": ""
           }
         },
@@ -69,6 +78,7 @@
         "buy_buttons",
         "variant_picker",
         "collapsible-row-0",
+        "collapsible_tab_FVTExD",
         "share"
       ],
       "settings": {
