@@ -50,16 +50,7 @@
           "settings": {
             "heading": "Materials",
             "icon": "leather",
-            "content": "<p>PP Plastic</p>",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
+            "content": "<p>Cotton</p>",
             "page": ""
           }
         },
@@ -78,7 +69,6 @@
         "buy_buttons",
         "variant_picker",
         "collapsible-row-0",
-        "collapsible-row-2",
         "share"
       ],
       "settings": {
