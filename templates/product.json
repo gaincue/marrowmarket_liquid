@@ -50,7 +50,7 @@
           "settings": {
             "heading": "Materials",
             "icon": "leather",
-            "content": "<p>Nylon</p>",
+            "content": "{{ product.metafields.shopify.material | metafield_tag: field: 'label' }}<p></p>",
             "page": ""
           }
         },
@@ -59,7 +59,7 @@
           "settings": {
             "heading": "Care instruction",
             "icon": "check_mark",
-            "content": "<ul><li>Hand wash with mild detergent.</li><li>Avoid bleach or harsh chemicals</li><li>Do not tumble dry.</li><li>Dark colors may transfer; wash separately.</li></ul>",
+            "content": "<p>{{ product.metafields.descriptors.care_guide | metafield_tag }}</p>",
             "page": ""
           }
         },
