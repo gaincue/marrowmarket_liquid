@@ -60,10 +60,28 @@
         "enable_country_selector": false,
         "enable_language_selector": false
       }
+    },
+    "17388272507dd5dc1e": {
+      "type": "apps",
+      "blocks": {
+        "countdown_sami_app_block_countdown_YUJzPb": {
+          "type": "shopify://apps/countdown-sami/blocks/app-block-countdown/4a43514a-3558-477f-914e-e834a137453e",
+          "settings": {
+            "shortcode": "<div class=\"samita-countdown\" data-id=\"2233\" data-type=\"timer\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "countdown_sami_app_block_countdown_YUJzPb"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "header",
-    "announcement-bar"
+    "announcement-bar",
+    "17388272507dd5dc1e"
   ]
 }
