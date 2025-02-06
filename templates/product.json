@@ -12,12 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "countdown_sami_app_block_countdown_ckNjnH": {
-          "type": "shopify://apps/countdown-sami/blocks/app-block-countdown/4a43514a-3558-477f-914e-e834a137453e",
-          "settings": {
-            "shortcode": "<div class=\"samita-countdown\" data-id=\"2233\" data-type=\"timer\"></div>"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -37,6 +31,13 @@
           "type": "description",
           "settings": {}
         },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -44,11 +45,10 @@
             "swatch_shape": "circle"
           }
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
+        "countdown_sami_app_block_countdown_ckNjnH": {
+          "type": "shopify://apps/countdown-sami/blocks/app-block-countdown/4a43514a-3558-477f-914e-e834a137453e",
           "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": true
+            "shortcode": "<div class=\"samita-countdown\" data-id=\"2233\" data-type=\"timer\"></div>"
           }
         },
         "collapsible-row-0": {
@@ -77,13 +77,13 @@
         }
       },
       "block_order": [
-        "countdown_sami_app_block_countdown_ckNjnH",
         "title",
         "caption",
         "price",
         "description",
         "buy_buttons",
         "variant_picker",
+        "countdown_sami_app_block_countdown_ckNjnH",
         "collapsible-row-0",
         "collapsible_tab_FVTExD",
         "share"
