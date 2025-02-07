@@ -14,10 +14,10 @@
   data-section="{{ section.id }}"
   {{ block.shopify_attributes }}
 >
-  <script>
-    console.log({{product|json}});
-  </script>
   {%- for option in product.options_with_values -%}
+    <script>
+      console.log({{option|json}});
+    </script>
     {%- liquid
       assign swatch_count = option.values | map: 'swatch' | compact | size
       assign picker_type = block.settings.picker_type
