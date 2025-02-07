@@ -35,6 +35,9 @@
           <input
             type="radio"
             checked
+            {% if option_disabled %}
+              class="disabled"
+            {% endif %}
           >
           <label> M - Crop </label>
         </fieldset>
