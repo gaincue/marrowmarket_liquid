@@ -15,7 +15,7 @@
   {{ block.shopify_attributes }}
 >
   <script>
-    console.log({{product|json}});
+    console.log({{product.options_with_values|json}});
   </script>
   {%- for option in product.options_with_values -%}
     <script>
