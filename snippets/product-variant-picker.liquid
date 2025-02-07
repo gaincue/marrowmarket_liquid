@@ -8,7 +8,8 @@
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
-{%- unless product.has_only_default_variant and product.tags contains 'Bundle' != true -%}
+<!-- {%- unless product.has_only_default_variant and product.tags contains 'Bundle' != true -%} -->
+{%- if (product.has_only_default_variant and product.tags contains 'bundle') or (product.tags contains 'bundle' != true and product.has_only_default_variant != true) -%}
   <variant-selects
     id="variant-selects-{{ section.id }}"
     data-section="{{ section.id }}"
@@ -89,4 +90,5 @@
       {{ product.selected_or_first_available_variant | json }}
     </script>
   </variant-selects>
-{%- endunless -%}
+{%- endif -%}
+<!-- {%- endunless -%} -->
