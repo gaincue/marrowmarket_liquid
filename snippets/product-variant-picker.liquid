@@ -15,9 +15,15 @@
   {{ block.shopify_attributes }}
 >
   <script>
+    console.log('handle', {{product.handle|json}});
+    // console.log('product', {{product.|json}});
     console.log('option', {{product.options_with_values|json}});
     console.log('values', {{product.options_with_values|json}});
   </script>
+  {%- if product.handle == 'take-me-off-the-market-b1f1-valentine-s-bundle-brie-truffle-tee' -%}
+    <p>test</p>
+  {% endif %}
+
   {%- for option in product.options_with_values -%}
     <script>
       console.log({{option|json}});
