@@ -27,6 +27,23 @@
           endif
         endif
       -%}
+
+      <!-- shirt bundle hard coded variant picker -->
+      {%- if product.handle == 'take-me-off-the-market-b1f1-valentine-s-bundle-brie-truffle-tee' -%}
+        <fieldset class="js product-form__input product-form__input--pill">
+          <legend class="form__label">Brie Truffle Tee (Size)</legend>
+          <input
+            type="radio"
+            checked
+            {% unless product.available %}
+              class="disabled"
+            {% endunless %}
+          >
+          <label> M - Crop </label>
+        </fieldset>
+      {% endif %}
+      <!-- shirt bundle hard coded variant picker -->
+
       {%- if picker_type == 'swatch' -%}
         <fieldset class="js product-form__input product-form__input--swatch">
           <legend class="form__label">
