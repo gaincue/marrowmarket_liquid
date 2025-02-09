@@ -36,14 +36,14 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Free Shipping within Malaysia",
+            "text": "SHOP VALENTINE'S BUNDLES",
             "link": ""
           }
         },
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "Order above RM300",
+            "text": "BUY 1 FREE 1",
             "link": ""
           }
         }
