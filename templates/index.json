@@ -29,24 +29,6 @@
     "slideshow_XYEtJh": {
       "type": "slideshow",
       "blocks": {
-        "slide_EhL9bR": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/KV_Valentines-Day_Web_107eeea7-33ea-47c3-9a44-5638d990d6c1.jpg",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center"
-          }
-        },
         "slide_nYgyfE": {
           "type": "slide",
           "settings": {
@@ -103,7 +85,6 @@
         }
       },
       "block_order": [
-        "slide_EhL9bR",
         "slide_nYgyfE",
         "slide_3bWUg8",
         "slide_GPAfN8"
