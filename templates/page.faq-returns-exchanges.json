@@ -38,9 +38,9 @@
         "collapsible_row_b4mbEe": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What is your return policy?",
+            "heading": "What is your return & refund policy?",
             "icon": "none",
-            "row_content": "<p>We’ve got a simple policy—returns are only accepted for defective goods. If you receive an item with a defect, please contact us within <strong>7 days</strong> of receiving your order to arrange for an exchange. Items must be returned in their unworn and unused condition with tags still attached.</p><p>We do not accept returns or exchanges for <strong>socks, fragrances, earrings or body Jewelry, swimwear or undergarments</strong> for hygiene reasons.</p>",
+            "row_content": "<p>At Marrow Market, we prioritize quality and customer satisfaction. If you receive an item that is faulty or does not meet our quality standards, we offer an exchange or, return and refund to the original payment method or store credit <br/><strong><br/>Eligibility for Refund</strong><br/>- Exchange or refunds are only applicable for defective items.<br/>- Items must be returned in their original tags, packaging and unused condition.<br/>- Requests for exchange or refunds must be made within 7 days of receiving the item.<br/><br/><strong>Refund Process</strong><br/>- Contact us at help@marrowmarket.com with your order number and photos of the defective item.<br/>- Once approved, you will receive instructions on how to return the item.<br/>- After we receive and inspect the item, you can choose to receive your refund as store credit or through the original payment method.<br/><br/><strong>Important Notes</strong><br/>- Shipping fees are non-refundable.<br/>- Store credit refunds cannot be exchanged for cash.<br/>- We do not accept returns or exchanges for socks, fragrances, earrings or body Jewelry, swimwear or undergarments for hygiene reasons.<br/>- We do not accept returns for change of mind.<br/><br/>For any inquiries, feel free to reach out to us at help@marrowmarket.com.</p>",
             "page": ""
           }
         },
@@ -139,9 +139,7 @@
         "column_RaQQmP",
         "column_te6yQp"
       ],
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "title": "",
         "heading_size": "h1",
