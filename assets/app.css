@@ -481,6 +481,9 @@ menu {
   margin-bottom: 2rem;
 }
 
+.shopify-policy__body h2 {
+  margin-top: 16px;
+}
 
 /*
 Reset default styling for dialogs.
