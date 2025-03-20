@@ -473,7 +473,7 @@ menu {
   list-style-position: outside !important;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  /* gap: 2rem; */
 }
 
 .shopify-policy__title {
