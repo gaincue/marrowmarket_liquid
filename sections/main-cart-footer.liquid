@@ -102,6 +102,23 @@
                     {%- endif -%}
                   {%- endif -%}
                 </small>
+
+                <div>
+                  <small>
+                    <input type="checkbox" id="data_protection" class="required-checkbox">
+                    <label for="data_protection">
+                      I agree to the <a href="{{ shop.privacy_policy.url }}" style="font-style: italic;">Marrow Market's Personal Data Protection Notice</a>.
+                    </label>
+                  </small>
+                </div>
+                <div>
+                  <small>
+                    <input type="checkbox" id="newsletter">
+                    <label for="newsletter">
+                      I agree to to receive news and offers from the Marrow Market
+                    </label>
+                  </small>
+                </div>
               </div>
             {%- else -%}
               <div class="cart__ctas" {{ block.shopify_attributes }}>
@@ -132,6 +149,29 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const dataProtectionCheckbox = document.getElementById('data_protection');
+    const checkoutButton = document.getElementById('checkout');
+
+    // Initial state - disable checkout if cart is not empty and checkbox is unchecked
+    if (checkoutButton && !checkoutButton.hasAttribute('disabled') && dataProtectionCheckbox) {
+      checkoutButton.disabled = !dataProtectionCheckbox.checked;
+    }
+
+    // Add event listener to checkbox
+    if (dataProtectionCheckbox && checkoutButton) {
+      dataProtectionCheckbox.addEventListener('change', function() {
+        // Only enable the checkout button if the checkbox is checked
+        // Don't override the disabled state if cart is empty
+        if (!checkoutButton.hasAttribute('data-cart-empty')) {
+          checkoutButton.disabled = !this.checked;
+        }
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
