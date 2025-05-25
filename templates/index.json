@@ -32,6 +32,24 @@
         "slide_nYgyfE": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Web-Banner.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_cc3ARE": {
+          "type": "slide",
+          "settings": {
             "image": "shopify://shop_images/DSC06721.jpg",
             "heading": "",
             "heading_size": "h1",
@@ -86,6 +104,7 @@
       },
       "block_order": [
         "slide_nYgyfE",
+        "slide_cc3ARE",
         "slide_3bWUg8",
         "slide_GPAfN8"
       ],
