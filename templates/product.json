@@ -69,6 +69,15 @@
             "page": ""
           }
         },
+        "collapsible_tab_BQxnFr": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Measurements",
+            "icon": "ruler",
+            "content": "<p>{{ product.metafields.custom.product_measurement | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -86,6 +95,7 @@
         "countdown_sami_app_block_countdown_ckNjnH",
         "collapsible-row-0",
         "collapsible_tab_FVTExD",
+        "collapsible_tab_BQxnFr",
         "share"
       ],
       "settings": {
