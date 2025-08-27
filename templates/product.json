@@ -51,6 +51,15 @@
             "shortcode": "<div class=\"samita-countdown\" data-id=\"2233\" data-type=\"timer\"></div>"
           }
         },
+        "collapsible_tab_BQxnFr": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Measurements",
+            "icon": "ruler",
+            "content": "<p>{{ product.metafields.custom.product_measurement | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
         "collapsible-row-0": {
           "type": "collapsible_tab",
           "settings": {
@@ -69,15 +78,6 @@
             "page": ""
           }
         },
-        "collapsible_tab_BQxnFr": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Measurements",
-            "icon": "ruler",
-            "content": "<p>{{ product.metafields.custom.product_measurement | metafield_tag }}</p>",
-            "page": ""
-          }
-        },
         "share": {
           "type": "share",
           "settings": {
@@ -93,9 +93,9 @@
         "variant_picker",
         "buy_buttons",
         "countdown_sami_app_block_countdown_ckNjnH",
+        "collapsible_tab_BQxnFr",
         "collapsible-row-0",
         "collapsible_tab_FVTExD",
-        "collapsible_tab_BQxnFr",
         "share"
       ],
       "settings": {
