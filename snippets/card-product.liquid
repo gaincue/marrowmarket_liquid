@@ -222,7 +222,14 @@
               </p>
             {%- endif -%}
 
+            {% comment %}
+            To enable collection discount strike-through, configure the collection handles, discount percentage, and deadline:
+            {% render 'price', product: card_product, price_class: '', show_compare_at_price: true, collection_discount_collections: 'sale,clearance,outlet', collection_discount_amount: 25, collection_discount_deadline: '2025-09-30' %}
+            {% endcomment %}
+            {% comment %}
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+            {% endcomment %}
+            {% render 'price', product: card_product, price_class: '', show_compare_at_price: true, collection_discount_collections: 'the-marrow-supermart', collection_discount_amount: 16, collection_discount_deadline: '2025-09-30' %}
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
                 {% liquid
@@ -569,7 +576,7 @@
                       <a href="{{ card_product.url }}" class="full-unstyled-link">
                         <h3>{{ card_product.title | escape }}</h3>
                       </a>
-                      {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+                      {% render 'price', product: card_product, price_class: '', show_compare_at_price: true, collection_discount_collections: 'the-marrow-supermart', collection_discount_amount: 16, collection_discount_deadline: '2025-09-30' %}
                       {%- if card_product.quantity_price_breaks_configured? -%}
                         <div class="card__information-volume-pricing-note">
                           <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
@@ -584,7 +591,7 @@
                           {{ card_product.title | escape }}
                         </h3>
                       </a>
-                      {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+                      {% render 'price', product: card_product, price_class: '', show_compare_at_price: true, collection_discount_collections: 'the-marrow-supermart', collection_discount_amount: 16, collection_discount_deadline: '2025-09-30' %}
                       {%- if card_product.quantity_price_breaks_configured? -%}
                         <div class="card__information-volume-pricing-note">
                           <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>

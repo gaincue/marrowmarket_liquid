@@ -8,9 +8,14 @@
   - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
   - price_class: {String} Adds a price class to the price element (optional)
   - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
+  - collection_discount_collections: {String} Comma-separated collection handles that have automatic discounts (optional)
+  - collection_discount_amount: {Number} Discount percentage to apply (optional)
+  - collection_discount_deadline: {String} Discount deadline in YYYY-MM-DD format (optional)
 
   Usage:
   {% render 'price', product: product %}
+  {% render 'price', product: product, collection_discount_collections: 'sale,clearance', collection_discount_amount: 20 %}
+  {% render 'price', product: product, collection_discount_collections: 'sale', collection_discount_amount: 25, collection_discount_deadline: '2024-12-31' %}
 {% endcomment %}
 {%- liquid
   if use_variant
@@ -26,17 +31,70 @@
   assign price_min = target.price_min
   assign price_max = target.price_max
   assign available = target.available | default: false
+
+  # Check for collection discount
+  assign has_collection_discount = false
+  assign original_price_for_discount = price
+  assign original_price_min_for_discount = price_min
+  assign original_price_max_for_discount = price_max
+
+  if collection_discount_collections != blank and collection_discount_amount != blank and product != blank
+    # Check if discount is still valid (before deadline)
+    assign discount_is_valid = true
+    if collection_discount_deadline != blank
+      assign today = 'now' | date: '%Y-%m-%d'
+      if today > collection_discount_deadline
+        assign discount_is_valid = false
+      endif
+    endif
+    
+    if discount_is_valid
+      assign collection_handles = collection_discount_collections | split: ','
+      for collection_handle in collection_handles
+        assign collection_handle = collection_handle | strip
+        for collection in product.collections
+          if collection.handle == collection_handle
+            assign has_collection_discount = true
+            assign discount_multiplier = 100 | minus: collection_discount_amount | divided_by: 100.0
+            # Current price is the original price, calculate discounted price
+            assign original_price_for_discount = price
+            assign original_price_min_for_discount = price_min
+            assign original_price_max_for_discount = price_max
+            # Calculate discounted prices
+            assign price = price | times: discount_multiplier | round: 2
+            assign price_min = price_min | times: discount_multiplier | round: 2
+            assign price_max = price_max | times: discount_multiplier | round: 2
+            break
+          endif
+        endfor
+        if has_collection_discount
+          break
+        endif
+      endfor
+    endif
+  endif
+
   assign money_price = price | money
   assign money_price_min = price_min | money
   assign money_price_max = price_max | money
+  assign money_original_price = original_price_for_discount | money
+  assign money_original_price_min = original_price_min_for_discount | money
+  assign money_original_price_max = original_price_max_for_discount | money
+
   if settings.currency_code_enabled
     assign money_price = price | money_with_currency
     assign money_price_min = price_min | money_with_currency
     assign money_price_max = price_max | money_with_currency
+    assign money_original_price = original_price_for_discount | money_with_currency
+    assign money_original_price_min = original_price_min_for_discount | money_with_currency
+    assign money_original_price_max = original_price_max_for_discount | money_with_currency
   endif
 
   if target == product and product.price_varies
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+    if has_collection_discount
+      assign money_original_price = 'products.product.price.from_price_html' | t: price: money_original_price
+    endif
   endif
 -%}
 
@@ -48,6 +106,7 @@
       {%- if available == false %} price--sold-out{% endif -%}
       {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
       {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
+      {%- if has_collection_discount %} price--on-sale{% endif -%}
       {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
       {%- if show_badges %} price--show-badge{% endif -%}
     "
@@ -59,8 +118,25 @@
           - div.price__sale: Displayed when a variant is a sale
       {%- endcomment -%}
       <div class="price__regular">
+        {%- if has_collection_discount -%}
+          <span class="visually-hidden visually-hidden--inline">
+            {{- 'products.product.price.regular_price' | t -}}
+          </span>
+          <span>
+            <s class="price-item price-item--regular variant-item__old-price">
+              {%- if product.quantity_price_breaks_configured? -%}
+                {{-
+                  'products.product.volume_pricing.price_range'
+                  | t: minimum: money_original_price_min, maximum: money_original_price_max
+                -}}
+              {%- else -%}
+                {{ money_original_price }}
+              {%- endif -%}
+            </s>
+          </span>
+        {%- endif -%}
         {%- if product.quantity_price_breaks_configured? -%}
-          {%- if show_compare_at_price and compare_at_price -%}
+          {%- if show_compare_at_price and compare_at_price and has_collection_discount == false -%}
             {%- unless product.price_varies == false and product.compare_at_price_varies %}
               <span class="visually-hidden visually-hidden--inline">
                 {{- 'products.product.price.regular_price' | t -}}
@@ -91,7 +167,24 @@
         {%- endif -%}
       </div>
       <div class="price__sale">
-        {%- unless product.price_varies == false and product.compare_at_price_varies %}
+        {%- if has_collection_discount -%}
+          <span class="visually-hidden visually-hidden--inline">
+            {{- 'products.product.price.regular_price' | t -}}
+          </span>
+          <span>
+            <s class="price-item price-item--regular">
+              {%- if product.quantity_price_breaks_configured? -%}
+                {{-
+                  'products.product.volume_pricing.price_range'
+                  | t: minimum: money_original_price_min, maximum: money_original_price_max
+                -}}
+              {%- else -%}
+                {{ money_original_price }}
+              {%- endif -%}
+            </s>
+          </span>
+        {%- endif -%}
+        {%- unless product.price_varies == false and product.compare_at_price_varies or has_collection_discount %}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span>
             <s class="price-item price-item--regular">
