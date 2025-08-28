@@ -51,6 +51,10 @@
             "shortcode": "<div class=\"samita-countdown\" data-id=\"2233\" data-type=\"timer\"></div>"
           }
         },
+        "aiod_all_in_1_discount_bogo_offer_n4kFPe": {
+          "type": "shopify://apps/aiod-all-in-1-discount/blocks/bogo-offer/9537caf0-36d5-4981-a648-8961a8e85652",
+          "settings": {}
+        },
         "collapsible_tab_BQxnFr": {
           "type": "collapsible_tab",
           "settings": {
@@ -93,6 +97,7 @@
         "variant_picker",
         "buy_buttons",
         "countdown_sami_app_block_countdown_ckNjnH",
+        "aiod_all_in_1_discount_bogo_offer_n4kFPe",
         "collapsible_tab_BQxnFr",
         "collapsible-row-0",
         "collapsible_tab_FVTExD",
