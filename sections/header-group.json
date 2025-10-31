@@ -36,14 +36,14 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "On orders over RM 300",
+            "text": "On orders over RM 200",
             "link": ""
           }
         },
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "Free Shipping within MY",
+            "text": "Double One, Double Love",
             "link": ""
           }
         }
