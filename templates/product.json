@@ -82,6 +82,10 @@
             "page": ""
           }
         },
+        "engraving": {
+          "type": "engraving",
+          "settings": {}
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -101,6 +105,7 @@
         "collapsible_tab_BQxnFr",
         "collapsible-row-0",
         "collapsible_tab_FVTExD",
+        "engraving",
         "share"
       ],
       "settings": {

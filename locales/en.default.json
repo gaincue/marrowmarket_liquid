@@ -177,7 +177,12 @@
       "taxes_included": "Taxes included.",
       "duties_included": "Duties included.",
       "duties_and_taxes_included": "Duties and taxes included.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
+      "engraving": {
+        "label": "Engraving",
+        "placeholder": "Enter text to engrave",
+        "max_chars": "Maximum {{ max_chars }} characters"
+      }
     },
     "modal": {
       "label": "Media gallery"

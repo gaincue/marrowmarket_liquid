@@ -890,6 +890,22 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'engraving' -%}
+                {%- if product.tags contains 'engraving' -%}
+                  <div class="product__engraving" {{ block.shopify_attributes }}>
+                    <label for="engraving-{{ section.id }}">
+                      {{ 'products.product.engraving.label' | t }}
+                    </label>
+                    <input
+                      type="text"
+                      id="engraving-{{ section.id }}"
+                      name="properties[Engraving]"
+                      maxlength="50"
+                      placeholder="{{ 'products.product.engraving.placeholder' | t }}"
+                    >
+                    <p class="caption">{{ 'products.product.engraving.max_chars' | t: max_chars: 50 }}</p>
+                  </div>
+                {%- endif -%}
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -1687,6 +1703,16 @@
           "id": "enable_quick_add",
           "label": "t:sections.main-product.blocks.complementary_products.settings.enable_quick_add.label",
           "default": false
+        }
+      ]
+    },
+    {
+      "type": "engraving",
+      "name": "Engraving",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Only visible on products with the 'engraving' tag"
         }
       ]
     },

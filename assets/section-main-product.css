@@ -1575,3 +1575,29 @@ swiper-slide img {
   left: 8px !important;
   right: auto !important;
 } */
+
+/* Engraving field */
+.product__engraving {
+  margin: 1.5rem 0;
+}
+
+.product__engraving label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.product__engraving input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(var(--color-foreground), 0.55);
+  border-radius: var(--inputs-radius);
+  font-size: 1.4rem;
+  max-width: 44rem;
+}
+
+.product__engraving .caption {
+  margin-top: 0.5rem;
+  color: rgba(var(--color-foreground), 0.7);
+}
