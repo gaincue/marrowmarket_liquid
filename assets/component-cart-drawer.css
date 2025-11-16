@@ -296,6 +296,27 @@ cart-drawer-items {
   }
 }
 
+/* Engraving property styling */
+.product-option--engraving,
+.product-option:has(dt:contains("Engraving")) {
+  font-weight: 500;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(var(--color-foreground), 0.05);
+  border-radius: var(--inputs-radius);
+  display: inline-block;
+}
+
+.product-option--engraving dt,
+.product-option:has(dt:contains("Engraving")) dt {
+  font-weight: 600;
+}
+
+.product-option--engraving dd,
+.product-option:has(dt:contains("Engraving")) dd {
+  font-style: italic;
+}
+
 .cart-drawer__footer > * + * {
   margin-top: 1rem;
 }
