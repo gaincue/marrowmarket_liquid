@@ -25,7 +25,7 @@
     -%}
 
     <product-form
-      class="product-form"
+      class="product-form{% if product.tags contains 'engraving' %} product-form--has-engraving{% endif %}"
       data-hide-errors="{{ gift_card_recipient_feature_active }}"
       data-section-id="{{ section.id }}"
     >
@@ -66,6 +66,24 @@
 
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+        {%- endif -%}
+
+        {%- comment -%}Engraving input - inside form so it gets submitted{%- endcomment -%}
+        {%- if product.tags contains 'engraving' -%}
+          <div class="product-form__input product__engraving">
+            <label class="form__label" for="engraving-{{ section_id }}">
+              {{ 'products.product.engraving.label' | t }}
+            </label>
+            <input
+              type="text"
+              id="engraving-{{ section_id }}"
+              class="field__input"
+              name="properties[Engraving]"
+              maxlength="50"
+              placeholder="{{ 'products.product.engraving.placeholder' | t }}"
+            >
+            <p class="caption">{{ 'products.product.engraving.max_chars' | t: max_chars: 50 }}</p>
+          </div>
         {%- endif -%}
 
         <div class="product-form__buttons">

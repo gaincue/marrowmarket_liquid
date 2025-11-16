@@ -234,6 +234,14 @@ product-info {
   margin: 2.5rem 0;
 }
 
+.product__info-container .product-form--has-engraving {
+  margin-top: 0;
+}
+
+.product__info-container .product-form--has-engraving .field__input {
+  padding: 1rem;
+}
+
 .product__text {
   margin-bottom: 0;
 }
@@ -1578,14 +1586,7 @@ swiper-slide img {
 
 /* Engraving field */
 .product__engraving {
-  margin: 1.5rem 0;
-}
-
-.product__engraving label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 1.4rem;
-  font-weight: 500;
+  margin: 0 0 1.5rem 0;
 }
 
 .product__engraving input {
