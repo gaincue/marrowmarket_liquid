@@ -36,14 +36,14 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Order above RM 300",
+            "text": "The Biggest Sale",
             "link": ""
           }
         },
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "Free Shipping Within Malaysia",
+            "text": "15 Jan to 8 Feb 2026",
             "link": ""
           }
         }
