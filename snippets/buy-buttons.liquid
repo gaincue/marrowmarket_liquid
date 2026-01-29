@@ -72,14 +72,15 @@
         {%- if product.tags contains 'engraving' -%}
           <div class="product-form__input product__engraving">
             <label class="form__label" for="engraving-{{ section_id }}">
-              {{ 'products.product.engraving.label' | t }}
+              {{ 'products.product.engraving.label' | t }} (+RM12.00)
             </label>
             <input
               type="text"
               id="engraving-{{ section_id }}"
               class="field__input"
               name="properties[Engraving]"
-              maxlength="50"
+              maxlength="10"
+              data-engraving-fee-id="{{ block.settings.engraving_fee_variant_id }}"
               placeholder="{{ 'products.product.engraving.placeholder' | t }}"
             >
             <p class="caption">{{ 'products.product.engraving.max_chars' | t: max_chars: 10 }}</p>

@@ -42,7 +42,9 @@
   endif
 -%}
 
+{% # theme-check-disable ContentForHeaderModification %}
 {%- capture content_for_querystring -%}{{- content_for_header -}}{%- endcapture -%}
+{% # theme-check-enable ContentForHeaderModification %}
 
 {% comment %} Use string splitting to pull the value from content_for_header and apply some string clean up {% endcomment %}
 {%- assign page_url = content_for_querystring

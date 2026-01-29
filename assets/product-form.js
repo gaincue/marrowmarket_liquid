@@ -65,7 +65,42 @@ if (!customElements.get("product-form")) {
               soldOutMessage.classList.remove("hidden");
               this.error = true;
               return;
-            } else if (!this.cart) {
+            }
+
+            const engravingInput = this.form.querySelector('[name="properties[Engraving]"]');
+            const engravingFeeId = engravingInput ? engravingInput.dataset.engravingFeeId : null;
+
+            if (engravingInput && engravingInput.value && engravingFeeId) {
+              const quantity = parseInt(this.form.querySelector('[name="quantity"]').value || 1);
+              const feeBody = JSON.stringify({
+                items: [{
+                  id: parseInt(engravingFeeId),
+                  quantity: quantity
+                }],
+                sections: this.cart ? this.cart.getSectionsToRender().map((section) => section.id) : [],
+                sections_url: window.location.pathname
+              });
+
+              const feeConfig = fetchConfig('json');
+              feeConfig.body = feeBody;
+
+              return fetch(`${window.routes.cart_add_url}`, feeConfig)
+                .then(feeRes => feeRes.json())
+                .then(feeRes => {
+                  if (feeRes.status) {
+                    console.error("Failed to add engraving fee", feeRes);
+                    return response;
+                  }
+                  return feeRes;
+                });
+            }
+
+            return response;
+          })
+          .then((response) => {
+            if (!response) return;
+
+            if (!this.cart) {
               window.location = window.routes.cart_url;
               return;
             }
