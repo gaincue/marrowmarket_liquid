@@ -70,11 +70,12 @@ if (!customElements.get("product-form")) {
             const engravingInput = this.form.querySelector('[name="properties[Engraving]"]');
             const engravingFeeId = engravingInput ? engravingInput.dataset.engravingFeeId : null;
 
-            if (engravingInput && engravingInput.value && engravingFeeId) {
-              const quantity = parseInt(this.form.querySelector('[name="quantity"]').value || 1);
+            if (engravingInput?.value && engravingFeeId) {
+              const quantityInput = this.form.querySelector('[name="quantity"]');
+              const quantity = parseInt(quantityInput?.value || 1, 10);
               const feeBody = JSON.stringify({
                 items: [{
-                  id: parseInt(engravingFeeId),
+                  id: parseInt(engravingFeeId, 10),
                   quantity: quantity
                 }],
                 sections: this.cart ? this.cart.getSectionsToRender().map((section) => section.id) : [],
