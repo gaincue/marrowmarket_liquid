@@ -71,8 +71,10 @@ if (!customElements.get("product-form")) {
             const engravingFeeId = engravingInput ? engravingInput.dataset.engravingFeeId : null;
 
             if (engravingInput?.value && engravingFeeId) {
-              const quantityInput = this.form.querySelector('[name="quantity"]');
-              const quantity = parseInt(quantityInput?.value || 1, 10);
+              // Quantity input might be outside the form but connected via form attribute
+              const quantityInput = this.form.querySelector('[name="quantity"]') 
+                || document.querySelector(`[form="${this.form.id}"][name="quantity"]`);
+              const quantity = parseInt(quantityInput?.value || formData.get('quantity') || 1, 10);
               const feeBody = JSON.stringify({
                 items: [{
                   id: parseInt(engravingFeeId, 10),
@@ -85,14 +87,22 @@ if (!customElements.get("product-form")) {
               const feeConfig = fetchConfig('json');
               feeConfig.body = feeBody;
 
+              // Add the engraving fee product and merge sections with original response
               return fetch(`${window.routes.cart_add_url}`, feeConfig)
                 .then(feeRes => feeRes.json())
                 .then(feeRes => {
                   if (feeRes.status) {
                     console.error("Failed to add engraving fee", feeRes);
+                    // If engraving fee fails, still return the original product response
                     return response;
                   }
-                  return feeRes;
+                  // Merge sections from the engraving fee response into the original response
+                  // The original response has the correct 'key' for the main product
+                  // but we need the updated sections (cart count, etc.) from the fee response
+                  if (feeRes.sections) {
+                    response.sections = feeRes.sections;
+                  }
+                  return response;
                 });
             }
 
