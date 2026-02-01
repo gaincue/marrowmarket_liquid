@@ -35,6 +35,20 @@ if (!customElements.get("product-form")) {
         delete config.headers["Content-Type"];
 
         const formData = new FormData(this.form);
+
+        // Handle engraving variant switch before submitting
+        const engravingInput = this.form.querySelector('[name="properties[Engraving]"]');
+        if (engravingInput?.value) {
+          const engravingVariantId = this.findEngravingVariantId();
+          if (engravingVariantId) {
+            // Update the variant ID to the engraving variant
+            formData.set('id', engravingVariantId);
+            console.log('[Engraving] Switched to engraving variant:', engravingVariantId);
+          } else {
+            console.warn('[Engraving] No engraving variant found - using original variant');
+          }
+        }
+
         if (this.cart) {
           formData.append(
             "sections",
@@ -65,45 +79,6 @@ if (!customElements.get("product-form")) {
               soldOutMessage.classList.remove("hidden");
               this.error = true;
               return;
-            }
-
-            const engravingInput = this.form.querySelector('[name="properties[Engraving]"]');
-            const engravingFeeId = engravingInput ? engravingInput.dataset.engravingFeeId : null;
-
-            if (engravingInput?.value && engravingFeeId) {
-              // Quantity input might be outside the form but connected via form attribute
-              const quantityInput = this.form.querySelector('[name="quantity"]') 
-                || document.querySelector(`[form="${this.form.id}"][name="quantity"]`);
-              const quantity = parseInt(quantityInput?.value || formData.get('quantity') || 1, 10);
-              const feeBody = JSON.stringify({
-                items: [{
-                  id: parseInt(engravingFeeId, 10),
-                  quantity: quantity
-                }],
-                sections: this.cart ? this.cart.getSectionsToRender().map((section) => section.id) : [],
-                sections_url: window.location.pathname
-              });
-
-              const feeConfig = fetchConfig('json');
-              feeConfig.body = feeBody;
-
-              // Add the engraving fee product and merge sections with original response
-              return fetch(`${window.routes.cart_add_url}`, feeConfig)
-                .then(feeRes => feeRes.json())
-                .then(feeRes => {
-                  if (feeRes.status) {
-                    console.error("Failed to add engraving fee", feeRes);
-                    // If engraving fee fails, still return the original product response
-                    return response;
-                  }
-                  // Merge sections from the engraving fee response into the original response
-                  // The original response has the correct 'key' for the main product
-                  // but we need the updated sections (cart count, etc.) from the fee response
-                  if (feeRes.sections) {
-                    response.sections = feeRes.sections;
-                  }
-                  return response;
-                });
             }
 
             return response;
@@ -176,6 +151,94 @@ if (!customElements.get("product-form")) {
         } else {
           this.submitButton.removeAttribute("disabled");
           this.submitButtonText.textContent = window.variantStrings.addToCart;
+        }
+      }
+
+      /**
+       * Find the engraving variant ID based on the current variant
+       * Option B: Engraving is a separate product option (e.g., Color: Red, Engraving: Yes)
+       * Looks for a variant with the same base options but with 'Yes' for the Engraving option
+       * @returns {number|null} The engraving variant ID or null if not found
+       */
+      findEngravingVariantId() {
+        try {
+          // Get the variant data from the JSON script tag
+          const variantDataScript = this.form.querySelector('[data-engraving-variants]');
+          if (!variantDataScript) {
+            console.log('[Engraving] No variant data found');
+            return null;
+          }
+
+          const variantData = JSON.parse(variantDataScript.textContent);
+          const variants = variantData.variants;
+          const options = variantData.options || [];
+
+          // Get the currently selected variant ID
+          const currentVariantId = parseInt(this.variantIdInput.value, 10);
+
+          // Find the current variant
+          const currentVariant = variants.find(v => v.id === currentVariantId);
+          if (!currentVariant) {
+            console.log('[Engraving] Current variant not found:', currentVariantId);
+            return null;
+          }
+
+          console.log('[Engraving] Current variant:', currentVariant.title);
+          console.log('[Engraving] Options:', options);
+
+          // Find which option position is the Engraving option
+          const engravingOptionIndex = options.findIndex(opt =>
+            opt.toLowerCase() === 'engraving' ||
+            opt.toLowerCase() === 'personalisation' ||
+            opt.toLowerCase() === 'personalization'
+          );
+
+          if (engravingOptionIndex === -1) {
+            console.log('[Engraving] No Engraving option found in product options');
+            return null;
+          }
+
+          const optionKey = `option${engravingOptionIndex + 1}`; // option1, option2, or option3
+          console.log('[Engraving] Engraving option position:', optionKey);
+
+          // Check if current variant already has engraving selected
+          const currentEngravingValue = currentVariant[optionKey]?.toLowerCase();
+          if (currentEngravingValue === 'yes' || currentEngravingValue === 'with engraving') {
+            console.log('[Engraving] Current variant already has engraving');
+            return currentVariantId; // Already on engraving variant
+          }
+
+          // Find the matching variant with engraving = Yes
+          const engravingVariant = variants.find(v => {
+            if (v.id === currentVariantId) return false;
+            if (!v.available) return false;
+
+            // Check if engraving option is 'Yes' or similar
+            const engravingValue = v[optionKey]?.toLowerCase();
+            if (engravingValue !== 'yes' && engravingValue !== 'with engraving') {
+              return false;
+            }
+
+            // Check all other options match
+            for (let i = 1; i <= 3; i++) {
+              const key = `option${i}`;
+              if (i === engravingOptionIndex + 1) continue; // Skip the engraving option
+              if (v[key] !== currentVariant[key]) return false;
+            }
+
+            return true;
+          });
+
+          if (engravingVariant) {
+            console.log('[Engraving] Found engraving variant:', engravingVariant.title, engravingVariant.id);
+            return engravingVariant.id;
+          }
+
+          console.log('[Engraving] No engraving variant found for:', currentVariant.title);
+          return null;
+        } catch (error) {
+          console.error('[Engraving] Error finding engraving variant:', error);
+          return null;
         }
       }
 

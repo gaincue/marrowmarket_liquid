@@ -26,7 +26,19 @@
             assign picker_type = 'swatch'
           endif
         endif
+
+        # Skip the Engraving option for products with engraving tag
+        # The engraving variant is selected automatically via JavaScript when user enters engraving text
+        assign option_name_lower = option.name | downcase
+        assign is_engraving_option = false
+        if product.tags contains 'engraving'
+          if option_name_lower == 'engraving' or option_name_lower == 'personalisation' or option_name_lower == 'personalization'
+            assign is_engraving_option = true
+          endif
+        endif
       -%}
+
+      {%- unless is_engraving_option -%}
 
       <!-- shirt bundle hard coded variant picker -->
       {%- if product.handle == 'take-me-off-the-market-b1f1-valentine-s-bundle-brie-truffle-tee' -%}
@@ -100,6 +112,7 @@
           </div>
         </div>
       {%- endif -%}
+      {%- endunless -%}
     {%- endfor -%}
 
     <script type="application/json" data-selected-variant>
