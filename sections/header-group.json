@@ -36,14 +36,14 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "The Biggest Sale | 15 Jan to 15 Feb",
+            "text": "Up to 50% Off",
             "link": ""
           }
         },
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "CNY orders closure on 11 Feb | 2PM",
+            "text": "Marrow Raya Markdown",
             "link": ""
           }
         }
