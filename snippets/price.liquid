@@ -9,13 +9,14 @@
   - price_class: {String} Adds a price class to the price element (optional)
   - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
   - collection_discount_collections: {String} Comma-separated collection handles that have automatic discounts (optional)
-  - collection_discount_amount: {Number} Discount percentage to apply (optional)
+  - collection_discount_amount: {Number|String} Discount percentage to apply, or comma-separated percentages matching collections (optional)
   - collection_discount_deadline: {String} Discount deadline in YYYY-MM-DD format (optional)
 
   Usage:
   {% render 'price', product: product %}
   {% render 'price', product: product, collection_discount_collections: 'sale,clearance', collection_discount_amount: 20 %}
   {% render 'price', product: product, collection_discount_collections: 'sale', collection_discount_amount: 25, collection_discount_deadline: '2024-12-31' %}
+  {% render 'price', product: product, collection_discount_collections: 'collection-a,collection-b', collection_discount_amount: '50,40' %}
 {% endcomment %}
 {%- liquid
   if use_variant
@@ -50,12 +51,23 @@
     
     if discount_is_valid
       assign collection_handles = collection_discount_collections | split: ','
+      assign amount_string = collection_discount_amount | append: ''
+      assign collection_amounts = amount_string | split: ','
+      
       for collection_handle in collection_handles
+        assign outer_index = forloop.index0
         assign collection_handle = collection_handle | strip
         for collection in product.collections
           if collection.handle == collection_handle
             assign has_collection_discount = true
-            assign discount_multiplier = 100 | minus: collection_discount_amount | divided_by: 100.0
+            
+            if collection_amounts.size > 1
+              assign current_amount = collection_amounts[outer_index] | strip | plus: 0
+            else
+              assign current_amount = collection_discount_amount | strip | plus: 0
+            endif
+            
+            assign discount_multiplier = 100 | minus: current_amount | divided_by: 100.0
             # Current price is the original price, calculate discounted price
             assign original_price_for_discount = price
             assign original_price_min_for_discount = price_min
