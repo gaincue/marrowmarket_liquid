@@ -36,14 +36,14 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Up to 50% Off",
+            "text": "Steal you add-on deals",
             "link": ""
           }
         },
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "Marrow Raya Markdown",
+            "text": "From RM10",
             "link": ""
           }
         }
