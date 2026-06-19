@@ -36,14 +36,14 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Steal you add-on deals",
+            "text": "Bundle Deals are now live!",
             "link": ""
           }
         },
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "From RM10",
+            "text": "Mix & match your favourite Tees",
             "link": ""
           }
         }
