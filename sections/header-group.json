@@ -36,14 +36,14 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Bundle Deals are now live!",
+            "text": "Bundle deals are now live!",
             "link": ""
           }
         },
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "Mix & match your favourite Tees",
+            "text": "Mix & Match your favourite Tees",
             "link": ""
           }
         }
