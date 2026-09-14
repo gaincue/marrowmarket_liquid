@@ -153,7 +153,7 @@
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
                       {%- endif -%}
                     </div>
-                  {%- when 'newsletter'-% %}
+                  {%- when 'newsletter' %}
                     <div class="footer-block__newsletter">
                       {%- if block.settings.newsletter_heading != blank -%}
                         <h2 class="footer-block__heading inline-richtext twcss-text-start">
@@ -645,3 +645,13 @@
   }
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- when 'newsletter'-% %}"
+  to: "{%- when 'newsletter' %}"
+  position: 7879..7903
+{% endcomment %}
